@@ -1,0 +1,29 @@
+ServerAliveCountMax 3
+ServerAliveInterval 10
+
+Host hdf
+  User root
+  HostName 10.9.13.4
+  Port 2202
+
+Host vm
+  User studente
+  HostName 10.9.13.4
+
+Host fabri_vm
+  User studente
+  HostName 10.9.13.9 
+
+Host fabri_hdf
+  User root
+  HostName 10.9.13.9 
+  Port 2202
+
+Host max_vm
+  User studente
+  HostName 10.9.13.50 
+
+Host max_hdf
+  User root
+  HostName 10.9.13.50 
+  Port 2202
