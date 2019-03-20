@@ -17,8 +17,12 @@ start = time.time()
 for count, message in enumerate(consumer):
     j = json.loads(message.value)        
     try:
-        d.append({'member_id':str(j['member']['member_id']),'event_id':str(j['event']['event_id']),
-                             'response':str(j['response']),'mtime':str(j['mtime'])})
+        if j['guests']:
+            d.append({'member_id':str(j['member']['member_id']),'event_id':str(j['event']['event_id']),
+                             'response':str(j['response']),'mtime':str(j['mtime']),'guests':str(j['guests'])})
+        else:
+            d.append({'member_id':str(j['member']['member_id']),'event_id':str(j['event']['event_id']),
+                             'response':str(j['response']),'mtime':str(j['mtime']), 'guests': str(0)})
     except: 
         print '******Errore*****'
         break
@@ -38,11 +42,11 @@ start = time.time()
 df['id'] = df['member_id'].astype(str) + df['event_id'].astype(str)
 df_sorted = df.sort_values("mtime", ascending = False)
 df_cleaned = df.drop_duplicates(subset = 'id', keep = 'first')
-df_cleaned = df_cleaned.drop(['id'], axis = 1)
+df_cleaned = df_cleaned.drop(['id', 'mtime'], axis = 1)
 
 end = time.time()
 
 print "Cleaned dataframe has "+str(len(df_cleaned)-1)+" rows, from an initial dataframe of "+str(len(df_sorted)-1)+" rows"
 print "This cleaning work required "+str(end-start)
 
-df_cleaned.to_csv("/root/Script/first_try.csv", index = False)
+df_cleaned.to_csv("/root/csv/relations_member-event-response[new].csv", index = False)
