@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "./try.py", line 8, in <module>
+    import pandas as pd
+ImportError: No module named pandas
+sorted&reset
+starting itertuples
+completed in553.433453083
+       index  group_id  ...                         urlkey topic_id
+0   12121598  30796503  ...          1-2-marathon-training    26150
+1    6563443  30796503  ...          1-2-marathon-training    27538
+2    9662320  30796503  ...          1-2-marathon-training     9822
+3    5402990  30796503  ...          1-2-marathon-training    26160
+4   11028499  30796503  ...          1-2-marathon-training    17094
+5   12756535  30796503  ...          1-2-marathon-training    18518
+6   10714250  30796503  ...          1-2-marathon-training    26161
+7    9793302  30796503  ...          1-2-marathon-training     8384
+8    4453938  30796503  ...          1-2-marathon-training     2739
+9    5896961   8760702  ...          1-2-marathon-training    26151
+10  11120993  30796503  ...          1-2-marathon-training    26158
+11   8191228  30796503  ...          1-2-marathon-training    26155
+12   9922450   8760702  ...          1-2-marathon-training    13962
+13   8314431  30796503  ...          1-2-marathon-training     7774
+14   9918184   8760702  ...          1-2-marathon-training    32605
+15   1855909   8760702  ...          1-2-marathon-training    30663
+16   8461684  30796503  ...          1-2-marathon-training    31879
+17   7234112  30796503  ...          1-2-marathon-training    29580
+18   9980949  30796503  ...          1-2-marathon-training    27607
+19  12136995  30796503  ...          1-2-marathon-training    11968
+20    729852  30649235  ...  1-day-travel-weekend-getaways    12134
+21   4975817  30649235  ...  1-day-travel-weekend-getaways     3519
+22   8979910  30649235  ...  1-day-travel-weekend-getaways    12125
+23   9954454  15601782  ...          100-business-startups     4722
+24   3446325   1751326  ...          100-business-startups    25405
+25   1210852  15601782  ...          100-business-startups    29036
+26  12136299   1751326  ...          100-business-startups    27908
+27  11236272  15601782  ...          100-business-startups    26609
+28   3054133  15601782  ...          100-business-startups     4704
+29    773867  15601782  ...          100-business-startups     5916
+30  11236944  15601782  ...          100-business-startups    10168
+31   5513526  15601782  ...          100-business-startups     6007
+32  12549607   1751326  ...          100-business-startups    28575
+33   9881035  15601782  ...          100-business-startups    23026
+34   7337454  15601782  ...          100-business-startups    27597
+35  11797680  15601782  ...          100-business-startups    28612
+36   6823098  15601782  ...          100-business-startups    23014
+37  12340925  15601782  ...          100-business-startups    23166
+38  13055507  15601782  ...          100-business-startups    28579
+39   1937605  24980900  ...          100-business-startups    33136
+40   3578436   1751326  ...          100-business-startups    12038
+41   2969570  15601782  ...          100-business-startups    15074
+42    331846   2908872  ...      1031-real-estate-exchange    10343
+43   5387588   2908872  ...      1031-real-estate-exchange    19146
+44   3646167   2908872  ...      1031-real-estate-exchange     2370
+45  12166420   2908872  ...      1031-real-estate-exchange    26383
+46   2444794  19897371  ...      1031-real-estate-exchange    27908
+47   7419878   2908872  ...      1031-real-estate-exchange    22041
+48   9131986  30825884  ...      1031-real-estate-exchange    30467
+49   8507446   2908872  ...      1031-real-estate-exchange    24147
+
+[50 rows x 6 columns]
+Traceback (most recent call last):
+  File "./create_topic_id.py", line 15, in <module>
+    df = pd.read_csv("Csv/relations_topics.csv")
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 702, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 435, in _read
+    data = parser.read(nrows)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 1139, in read
+    ret = self._engine.read(nrows)
+  File "/usr/lib64/python2.7/site-packages/pandas/io/parsers.py", line 1995, in read
+    data = self._reader.read(nrows)
+  File "pandas/_libs/parsers.pyx", line 899, in pandas._libs.parsers.TextReader.read
+  File "pandas/_libs/parsers.pyx", line 914, in pandas._libs.parsers.TextReader._read_low_memory
+  File "pandas/_libs/parsers.pyx", line 991, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 1123, in pandas._libs.parsers.TextReader._convert_column_data
+  File "pandas/_libs/parsers.pyx", line 1169, in pandas._libs.parsers.TextReader._convert_tokens
+  File "pandas/_libs/parsers.pyx", line 1215, in pandas._libs.parsers.TextReader._convert_with_dtype
+  File "/usr/lib64/python2.7/site-packages/pandas/core/dtypes/common.py", line 572, in is_categorical_dtype
+    def is_categorical_dtype(arr_or_dtype):
+KeyboardInterrupt
+completed in 462.307503939
