@@ -16,3 +16,7 @@
 ##Per chiudere uno screen che non ci serve più
 
 > screen -XS <name_screen> kill
+
+##Per retach su uno screen attached
+
+> screen -dr
