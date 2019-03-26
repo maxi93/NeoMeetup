@@ -35,12 +35,17 @@ for filename in consumer:
         break'''
 
 df = pd.DataFrame(d)
+df_1 = pd.read_csv("/root/csv/group_topics.csv")
+try:
+    df_end = df.merge(df_1, how = 'inner', left_on = 'urlkey', right_on = 'urlkey')
+except Exception as ex:
+    print ex
 
 end = time.time()
 
 print"already wrote "+str(count)+" in "+str(end-start)
 print"Time to work on this dataframe!"
 
-df.to_csv("/root/csv/relations_topics.csv", index = False)
+df_end.to_csv("/root/csv/relations_topics_try.csv", index = False)
 print(len(df))
 
