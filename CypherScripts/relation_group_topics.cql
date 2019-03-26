@@ -2,6 +2,8 @@
 
 return "Importing group-topics relations";
 
+USING PERIODIC COMMIT 50000
+
 LOAD CSV WITH HEADERS FROM "file:///relations_topic_with_id.csv" AS row
 
 MATCH (group:Group {id: row.group_id})
