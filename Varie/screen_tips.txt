@@ -17,6 +17,6 @@
 
 > screen -XS <name_screen> kill
 
-##Per retach su uno screen attached
+##Per retach su uno screen attached!
 
 > screen -dr
