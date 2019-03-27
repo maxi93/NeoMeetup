@@ -5,6 +5,7 @@ import ast
 from pprint import pprint
 from kafka import KafkaConsumer
 import time
+import pandas as pd
 
 consumer = KafkaConsumer(bootstrap_servers = 'sandbox-hdf.hortonworks.com:6667',
                          auto_offset_reset = 'earliest',
@@ -42,3 +43,13 @@ with open('/root/csv/group_topics.csv', 'wb') as f:
     w.writeheader()
     for k in topics:
         w.writerow({field: topics[k].get(field) or "NONE" for field in fields})
+        
+
+print "Try to add topic_index"
+
+df = pd.read_csv("/root/csv/group_topics.csv")
+df.sort_values('urlkey', inplace = True)
+df = df.reset_index()
+df.to_csv("/root/csv/group_topics_indexed.csv", index = True, index_label = "topic_id")
+
+print "Done!"

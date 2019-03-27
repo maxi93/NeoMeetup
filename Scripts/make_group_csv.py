@@ -32,9 +32,9 @@ for count, filename in enumerate(consumer):
        		print("outer for")
        		print e
 
-	'''if count==9:
+	if count==100000:
 	        print "count is "+str(count)
-	        break'''
+	        break
           
 
 print "################"
@@ -43,7 +43,7 @@ print " names dict lenght: "+str(len(groups))
 
 #print groups
 #pprint(groups)
-with open('/root/meetup_stuffs/group.csv', 'wb') as f:  
+with open('/root/csv/group_topics.csv', 'wb') as f:  
 	fields=["group_id","group_city","group_country","group_lat","group_lon","group_name","group_state","group_topics","group_urlname"]
 	w = csv.DictWriter(f, fields)
 	w.writeheader()
