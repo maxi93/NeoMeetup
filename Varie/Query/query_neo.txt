@@ -1,0 +1,16 @@
+##Lista di query eseguite con successo
+
+match (e:Event)
+where e.time is not null
+return e.name as Name, e.time as Time
+order by Time desc
+
+
+match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
+(e) - [h:HOSTED_AT] -> (v:Venue)
+return e.name, count (r) as cont, v.name as posto 
+order by cont desc
+
+match (g:Group)
+return distinct g.country as Country, count(g) as Num
+order by Num desc
