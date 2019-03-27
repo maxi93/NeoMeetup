@@ -9,7 +9,7 @@
 
 	
 
-// - Count regione/nazione etc (distribuzione globale) 
+
 
 #### Venue: 
 	quanti eventi vengono organizzati in una location, 
@@ -41,15 +41,14 @@
 - count per nazione o geo
 
 
-Groups:
-	per geo
-	più numerosi
+#### Groups:
+- per geo
+- più numerosi
 
-	più attivi (nel senso di numero di eventi attivi)
+- più attivi (nel senso di numero di eventi attivi)
 
 
 
--Stolkerare Sarah Ann
 
 
 
