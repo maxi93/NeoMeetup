@@ -12,15 +12,16 @@ match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
 (e) - [h:HOSTED_AT] -> (v:Venue)
 return e.name, count (r) as cont, v.name as posto 
 order by cont desc
+----
 [source, cypher]
 ----
 match (g:Group)
 return distinct g.country as Country, count(g) as Num
 order by Num desc
 ----
-* match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
 [source, cypher]
 ----
+match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
 where e.name = "NEW! Christian Country & Swing, 3rd Saturday Monthly (Santa Ana)"
 set r.guests = toInteger(r.guests)
 return  e.name, avg(r.guests) as AVG
