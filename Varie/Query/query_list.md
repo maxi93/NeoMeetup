@@ -1,6 +1,6 @@
-####STatistiche presa dati:
--numeri del progetto
--prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
+#### STatistiche presa dati:
+- numeri del progetto
+- prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
 
 
 
@@ -9,7 +9,7 @@
 
 	
 
-% - Count regione/nazione etc (distribuzione globale) 
+// - Count regione/nazione etc (distribuzione globale) 
 
 #### Venue: 
 	quanti eventi vengono organizzati in una location, 
