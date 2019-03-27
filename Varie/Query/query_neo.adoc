@@ -29,7 +29,7 @@ return distinct g.country as Country, count(g) as Num
 order by Num desc
 ----
 
-*No idea about this ^^
+* No idea about this ^^
 
 [source, cypher]
 ----
