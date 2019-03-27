@@ -14,3 +14,15 @@ order by cont desc
 match (g:Group)
 return distinct g.country as Country, count(g) as Num
 order by Num desc
+
+##match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
+where e.name = "NEW! Christian Country & Swing, 3rd Saturday Monthly (Santa Ana)"
+set r.guests = toInteger(r.guests)
+return  e.name, avg(r.guests) as AVG
+limit 100
+
+match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
+where r.response = "yes"
+set r.guests = toInteger(r.guests)
+return  e.name as Evento, avg(r.guests) as AVG_Guests, count(m) as Partecipanti
+order by AVG_Guests desc
