@@ -6,6 +6,7 @@ where e.time is not null
 return e.name as Name, e.time as Time
 order by Time desc
 ---
+
 [source, cypher]
 ----
 match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
@@ -13,12 +14,14 @@ match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
 return e.name, count (r) as cont, v.name as posto 
 order by cont desc
 ----
+
 [source, cypher]
 ----
 match (g:Group)
 return distinct g.country as Country, count(g) as Num
 order by Num desc
 ----
+
 [source, cypher]
 ----
 match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
@@ -27,6 +30,7 @@ set r.guests = toInteger(r.guests)
 return  e.name, avg(r.guests) as AVG
 limit 100
 ----
+
 [source, cypher]
 ----
 match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
