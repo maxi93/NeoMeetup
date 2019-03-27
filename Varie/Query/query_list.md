@@ -1,19 +1,19 @@
-#### STatistiche presa dati:
+#### Statistiche presa dati:
 - numeri del progetto
 - prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
 
 
 
 #### Topic: 
-	trend topic per uso di meetup (sia relativamente a membri interessati a tale topic, sia relativamente a eventi organizzati con tale topic)
+- trend topic per uso di meetup (sia relativamente a membri interessati a tale topic, sia relativamente a eventi organizzati con tale topic)
 
 	
 
 
 
 #### Venue: 
-	quanti eventi vengono organizzati in una location, 
-	le location più utilizzate (eventuale integrazione con geo)
+- quanti eventi vengono organizzati in una location, 
+- le location più utilizzate (eventuale integrazione con geo)
 
 
 #### Guest: 
