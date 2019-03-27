@@ -29,17 +29,6 @@ return distinct g.country as Country, count(g) as Num
 order by Num desc
 ----
 
-* No idea about this ^^
-
-[source, cypher]
-----
-match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
-where e.name = "NEW! Christian Country & Swing, 3rd Saturday Monthly (Santa Ana)"
-set r.guests = toInteger(r.guests)
-return  e.name, avg(r.guests) as AVG
-limit 100
-----
-
 * Media degli ospiti
 
 [source, cypher]
