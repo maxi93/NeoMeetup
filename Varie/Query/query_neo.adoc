@@ -5,7 +5,7 @@ match (e:Event)
 where e.time is not null
 return e.name as Name, e.time as Time
 order by Time desc
----
+----
 
 [source, cypher]
 ----
