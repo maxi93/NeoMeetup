@@ -1,5 +1,7 @@
 = Lista di query eseguite con successo
 
+* Eventi con time non nullo
+
 [source, cypher]
 ----
 match (e:Event)
@@ -7,6 +9,8 @@ where e.time is not null
 return e.name as Name, e.time as Time
 order by Time desc
 ----
+
+* Eventi con venues (i guess, in case #FIXME)
 
 [source, cypher]
 ----
@@ -16,12 +20,16 @@ return e.name, count (r) as cont, v.name as posto
 order by cont desc
 ----
 
+* Gruppi per Paese
+
 [source, cypher]
 ----
 match (g:Group)
 return distinct g.country as Country, count(g) as Num
 order by Num desc
 ----
+
+*No idea about this ^^
 
 [source, cypher]
 ----
@@ -31,6 +39,8 @@ set r.guests = toInteger(r.guests)
 return  e.name, avg(r.guests) as AVG
 limit 100
 ----
+
+* Media degli ospiti
 
 [source, cypher]
 ----
