@@ -1,6 +1,6 @@
 = Lista di query eseguite con successo
 
-* Eventi con time non nullo
+* Distribuzione temporale eventi (time non nullo)
 
 [source, cypher]
 ----
@@ -56,4 +56,39 @@ order by Totale_utenti desc
 match (g:Group)-[r:DEALS_WITH]->(t:Topic)
 return distinct t.name as Topic, count(g) as Totale_gruppi
 order by Totale_gruppi desc
+----
+
+* Location più utilizzate per gli eventi (con localizzazione)
+[source, cypher]
+----
+match (v:Venue)<-[r:HOSTED_AT]-(e:Event)
+return v.name as Nome_ritrovo, v.lat as Latitudine, v.lon as Longitudine, count(e) as Quantità_eventi
+order by Quantità_eventi desc
+----
+
+* Numero di eventi per Paese
+
+[source, cypher]
+----
+match (e:Event)<-[r:HOSTED_EVENT]-(g:Group)
+return count(e) as Numero_eventi,g.country as Paese
+order by Numero_eventi desc
+----
+
+* Numerosità gruppi
+
+[source, cypher]
+----
+match (m:Member)-[r:MEMBER_OF]->(g:Group)
+return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as Longitudine, g.country as Paese, g.city as Città
+order by Membri desc
+----
+
+* Numerosità eventi organizzati dai singoli gruppi
+
+[source, cypher]
+----
+match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
+return g.name as Nome_gruppo, g.country as Paese, g.city as Città, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
+order by Numero_eventi_organizzati desc
 ----

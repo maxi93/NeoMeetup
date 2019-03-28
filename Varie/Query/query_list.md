@@ -1,4 +1,4 @@
-#### Statistiche presa dati:
+﻿#### Statistiche presa dati:
 - numeri del progetto
 - prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
 
@@ -32,7 +32,7 @@
 
 
 #### Tempo di risposta (mtime)
-- analisi distribuzione temporale di risposte (rispetto a geo)
+- analisi distribuzione temporale di risposte (rispetto a geo) [da effettuare sul csv]
 
 #### Events:
 	
