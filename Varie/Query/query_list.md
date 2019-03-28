@@ -1,51 +1,51 @@
-#### Statistiche presa dati:
-- numeri del progetto
-- prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
+﻿#### Statistiche presa dati:
+- Numeri del progetto
+- Prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
 
 
 
 #### Topic: 
-- trend topic per uso di meetup (sia relativamente a membri interessati a tale topic, sia relativamente a eventi organizzati con tale topic)
+- Trend topic per uso di meetup (sia relativamente a membri interessati a tale topic, sia relativamente a eventi organizzati con tale topic)
 
 	
 
 
 
 #### Venue: 
-- quanti eventi vengono organizzati in una location, 
-- le location più utilizzate (eventuale integrazione con geo)
+- Quanti eventi vengono organizzati in una location, 
+- Le location più utilizzate (eventuale integrazione con geo)
 
 
 #### Guest: 
-- media di ospiti (associati a topic o tipo di evento), 
-- gente con più ospiti
+- Media di ospiti (associati a topic o tipo di evento), 
+- Gente con più ospiti
 
 
 #### Response: 
-- parlare dei problemi con response positive/negative che cambiano, e di come l'abbiamo gestita.
-- eventualmente analisi dei response negativi
+- Parlare dei problemi con response positive/negative che cambiano, e di come l'abbiamo gestita.
+- Eventualmente analisi dei response negativi
 
 
 #### Members:
-- arricchire dati con risposta https://www.meetup.com/meetup_api/docs/2/members/
+- Arricchire dati con risposta https://www.meetup.com/meetup_api/docs/2/members/
 
 
 
 #### Tempo di risposta (mtime)
-- analisi distribuzione temporale di risposte (rispetto a geo)
+- Analisi distribuzione temporale di risposte (rispetto a geo)
 
 #### Events:
 	
-- distribuzione temporale degli eventi (mattina, pomeriggio, sera)
+- Distribuzione temporale degli eventi (mattina, pomeriggio, sera)
 	
-- count per nazione o geo
+- Count per nazione o geo
 
 
 #### Groups:
-- per geo
-- più numerosi
+- Per geo
+- Più numerosi
 
-- più attivi (nel senso di numero di eventi attivi)
+- Più attivi (nel senso di numero di eventi attivi)
 
 
 
