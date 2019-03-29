@@ -10,13 +10,14 @@ return e.name as Name, e.time as Time
 order by Time desc
 ----
 
-* Eventi con venues e numerosità partecipanti
+* Eventi con venues e numerosità partecipanti (response yes)
 
 [source, cypher]
 ----
 match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
 (e) - [h:HOSTED_AT] -> (v:Venue)
-return e.name as Evento, count (r) as Partecipanti, v.name as Incontro 
+where r.response = "yes"
+return e.name as Evento, count (m) as Partecipanti, v.name as Incontro 
 order by Partecipanti desc
 ----
 
