@@ -26,8 +26,8 @@ order by Partecipanti desc
 [source, cypher]
 ----
 match (g:Group)
-return distinct g.country as Country, count(g) as Num
-order by Num desc
+return distinct g.country as Country, count(g) as Numero_gruppi
+order by Numero_gruppi desc
 ----
 
 * Media degli ospiti
