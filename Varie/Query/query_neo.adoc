@@ -4,10 +4,13 @@
 
 [source, cypher]
 ----
+// match (e:Event)
+// set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss')
+
 match (e:Event)
 where e.time is not null
-return e.name as Name, e.time as Time
-order by Time desc
+return e.name as Name, e.newtime as Time
+order by Time
 ----
 
 * Eventi con venues e numerosità partecipanti (response yes)
