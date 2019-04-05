@@ -37,10 +37,11 @@ order by Numero_gruppi desc
 
 [source, cypher]
 ----
-match (m:Member)-[r:WILL_PARTECIPATES]-(e:Event)
-where r.response = "yes"
-set r.guests = toInteger(r.guests)
-return  e.name as Evento, avg(r.guests) as AVG_Guests, count(m) as Partecipanti
+match (m:Member)-[r:WILL_PARTECIPATES]->(e:Event)
+with count(m) as Partecipanti, r.response as risposta, e.name as Evento, r.guests as Ospiti
+where r.response = "yes" and Partecipanti > 10
+//set r.guests = toInteger(r.guests)
+return  Evento , avg(Ospiti) as AVG_Guests, Partecipanti
 order by AVG_Guests desc
 ----
 
