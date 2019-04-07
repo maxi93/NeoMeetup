@@ -38,7 +38,8 @@ order by Numero_gruppi desc
 [source, cypher]
 ----
 match (g:Group)
-return distinct g.state as Stato, count(g) as Numero_gruppi
+where g.state <>  "NONE" and g.country = "us"
+return distinct g.state as State, count(g) as Numero_gruppi
 order by Numero_gruppi desc
 ----
 
