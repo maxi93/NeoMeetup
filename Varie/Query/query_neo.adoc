@@ -33,6 +33,15 @@ return distinct g.country as Country, count(g) as Numero_gruppi
 order by Numero_gruppi desc
 ----
 
+* Gruppi per Stati USA
+
+[source, cypher]
+----
+match (g:Group)
+return distinct g.state as Stato, count(g) as Numero_gruppi
+order by Numero_gruppi desc
+----
+
 * Media degli ospiti
 
 [source, cypher]
