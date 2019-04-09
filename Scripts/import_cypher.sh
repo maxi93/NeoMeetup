@@ -32,12 +32,7 @@ then echo "sync dirs"; rsync  ${CSV_DIR}/  ${NEO_IMPORT}/
 else echo "dir already sync" 
 fi
 
-for job in `jobs -p`
-do
-echo $job
-    wait $job || let "FAIL+=1"
-done
-
+FAIL=0
 
 echo "importing members"
 
@@ -58,51 +53,7 @@ do
 echo "job is " $job 
     wait $job || let "FAIL+=1"
 done
-:'
-echo "importing events"
 
-cat ${SCRIPT_DIR}/events_from_csv.cql |bash -ci 'cypher'
-
-echo "importing venues"
-
-cat ${SCRIPT_DIR}/venues_from_csv.cql |bash -ci 'cypher'
-
-echo "importing topics"
-
-cat ${SCRIPT_DIR}/create_topics_from_csv.cql |bash -ci 'cypher'
-
-
-echo "importing relations between event and group"
-
-cat ${SCRIPT_DIR}/relation_event_group.cql |bash -ci 'cypher'
-
-
-echo "importing relations event-venue"
-
-cat ${SCRIPT_DIR}/relation_event_venue.cql |bash -ci 'cypher'
-
-
-echo "importing relations group-topics"
-
-cat ${SCRIPT_DIR}/relation_group_topics.cql |bash -ci 'cypher'
-
-
-echo "importing relations member-events"
-
-cat ${SCRIPT_DIR}/relation_member_event.cql |bash -ci 'cypher'
-
-
-echo "importing relations member-group"
-
-cat ${SCRIPT_DIR}/relation_member_group.cql |bash -ci 'cypher'
-
-
-echo "importing relations member-group"
-
-cat ${SCRIPT_DIR}/relation_member_topics.cql |bash -ci 'cypher'
-
-'
-echo $FAIL
 
 if [ "$FAIL" == "0" ];
 then
