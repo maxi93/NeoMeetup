@@ -49,4 +49,4 @@ end = time.time()
 print "Cleaned dataframe has "+str(len(df_cleaned)-1)+" rows, from an initial dataframe of "+str(len(df_sorted)-1)+" rows"
 print "This cleaning work required "+str(end-start)
 
-df_cleaned.to_csv("/root/csv/relations_member-event-response[new].csv", index = False)
+df_cleaned.to_csv("/root/csv/relations_member-event-response_new.csv", index = False)

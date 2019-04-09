@@ -16,9 +16,9 @@ print("subscribed to topic meetup")
 messages = []
 d = []
 start = time.time()
-for filename in consumer:
+for message in consumer:
     try:
-        j = json.loads(filename.value)
+        j = json.loads(message.value)
         group_topics = j['group']['group_topics']
         for count, topic in enumerate(group_topics):
             try:
