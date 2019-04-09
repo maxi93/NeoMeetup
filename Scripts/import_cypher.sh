@@ -41,21 +41,21 @@ done
 
 echo "importing members"
 
-cat ${SCRIPT_DIR}/create_members_from_csv.cql |bash -ci 'cypher' &
+cat ${SCRIPT_DIR}/create_members_from_csv.cql |nohup bash -ci 'cypher' &
 
 for job in `jobs -p`
 do
-echo $job
+echo "job is " $job
     wait $job || let "FAIL+=1"
 done
 
 echo "importing groups"
 
-cat ${SCRIPT_DIR}/groups_from_csv.cql |bash -ci 'cypher' &
+cat ${SCRIPT_DIR}/groups_from_csv.cql |nohup bash -ci 'cypher' &
 
 for job in `jobs -p`
 do
-echo $job
+echo "job is " $job 
     wait $job || let "FAIL+=1"
 done
 :'
