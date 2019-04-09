@@ -32,14 +32,33 @@ then echo "sync dirs"; rsync  ${CSV_DIR}/  ${NEO_IMPORT}/
 else echo "dir already sync" 
 fi
 
+for job in `jobs -p`
+do
+echo $job
+    wait $job || let "FAIL+=1"
+done
+
+
 echo "importing members"
 
-cat ${SCRIPT_DIR}/create_members_from_csv.cql |bash -ci 'cypher'
+cat ${SCRIPT_DIR}/create_members_from_csv.cql |bash -ci 'cypher' &
+
+for job in `jobs -p`
+do
+echo $job
+    wait $job || let "FAIL+=1"
+done
 
 echo "importing groups"
 
-cat ${SCRIPT_DIR}/groups_from_csv.cql |bash -ci 'cypher'
+cat ${SCRIPT_DIR}/groups_from_csv.cql |bash -ci 'cypher' &
 
+for job in `jobs -p`
+do
+echo $job
+    wait $job || let "FAIL+=1"
+done
+:'
 echo "importing events"
 
 cat ${SCRIPT_DIR}/events_from_csv.cql |bash -ci 'cypher'
@@ -82,5 +101,14 @@ echo "importing relations member-group"
 
 cat ${SCRIPT_DIR}/relation_member_topics.cql |bash -ci 'cypher'
 
+'
+echo $FAIL
+
+if [ "$FAIL" == "0" ];
+then
+echo "YAY!"
+else
+echo "FAIL! ($FAIL)"
+fi
 
 
