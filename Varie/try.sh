@@ -1,5 +1,9 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
-cat file1.txt | echo
+echo "file1.txt" > /home/dario/file1.txt
+echo "file2.txt" > /home/dario/file2.txt
+ 
 
-cat file2.txt | echo 
+cat /home/dario/file1.txt | bash -ci 'ohoh'
+
+cat /home/dario/file2.txt | cat  
