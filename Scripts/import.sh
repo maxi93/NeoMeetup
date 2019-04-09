@@ -24,7 +24,7 @@ then
 	    	fi
 	fi
 fi
-exit
+
 #SET_COPY=true per creare symb links dei csv nell'import di default di neo
 SET_COPY=true
 if $SET_COPY 
