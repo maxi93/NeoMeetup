@@ -34,53 +34,53 @@ fi
 
 echo "importing members"
 
-cat ${SCRIPT_DIR}/create_members_from_csv.cql |cypher
+cat ${SCRIPT_DIR}/create_members_from_csv.cql |bash -ci 'cypher'
 
 echo "importing groups"
 
-cat ${SCRIPT_DIR}/groups_from_csv.cql |cypher
+cat ${SCRIPT_DIR}/groups_from_csv.cql |bash -ci 'cypher'
 
 echo "importing events"
 
-cat ${SCRIPT_DIR}/events_from_csv.cql |cypher
+cat ${SCRIPT_DIR}/events_from_csv.cql |bash -ci 'cypher'
 
 echo "importing venues"
 
-cat ${SCRIPT_DIR}/venues_from_csv.cql |cypher
+cat ${SCRIPT_DIR}/venues_from_csv.cql |bash -ci 'cypher'
 
 echo "importing topics"
 
-cat ${SCRIPT_DIR}/create_topics_from_csv.cql |cypher
+cat ${SCRIPT_DIR}/create_topics_from_csv.cql |bash -ci 'cypher'
 
 
 echo "importing relations between event and group"
 
-cat ${SCRIPT_DIR}/relation_event_group.cql |cypher
+cat ${SCRIPT_DIR}/relation_event_group.cql |bash -ci 'cypher'
 
 
 echo "importing relations event-venue"
 
-cat ${SCRIPT_DIR}/relation_event_venue.cql |cypher
+cat ${SCRIPT_DIR}/relation_event_venue.cql |bash -ci 'cypher'
 
 
 echo "importing relations group-topics"
 
-cat ${SCRIPT_DIR}/relation_group_topics.cql |cypher
+cat ${SCRIPT_DIR}/relation_group_topics.cql |bash -ci 'cypher'
 
 
 echo "importing relations member-events"
 
-cat ${SCRIPT_DIR}/relation_member_event.cql |cypher
+cat ${SCRIPT_DIR}/relation_member_event.cql |bash -ci 'cypher'
 
 
 echo "importing relations member-group"
 
-cat ${SCRIPT_DIR}/relation_member_group.cql |cypher
+cat ${SCRIPT_DIR}/relation_member_group.cql |bash -ci 'cypher'
 
 
 echo "importing relations member-group"
 
-cat ${SCRIPT_DIR}/relation_member_topics.cql |cypher
+cat ${SCRIPT_DIR}/relation_member_topics.cql |bash -ci 'cypher'
 
 
 
