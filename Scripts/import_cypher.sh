@@ -24,11 +24,11 @@ then
 	    	fi
 	fi
 fi
-exit
+
 #SET_COPY=true per creare symb links dei csv nell'import di default di neo
 SET_COPY=true
 if $SET_COPY 
-then echo "sync dirs"; ln -s  ${CSV_DIR}/*  ${NEO_IMPORT}/
+then echo "sync dirs"; rsync  ${CSV_DIR}/  ${NEO_IMPORT}/
 else echo "dir already sync" 
 fi
 
