@@ -38,6 +38,7 @@ echo "importing members"
 
 cat ${SCRIPT_DIR}/create_members_from_csv.cql |nohup bash -ci 'cypher' &
 
+echo "im here"
 for job in `jobs -p`
 do
 echo "job is " $job
@@ -48,12 +49,14 @@ echo "importing groups"
 
 cat ${SCRIPT_DIR}/groups_from_csv.cql |nohup bash -ci 'cypher' &
 
+echo "im here"
+
 for job in `jobs -p`
 do
 echo "job is " $job 
     wait $job || let "FAIL+=1"
 done
-
+echo "im here"
 
 if [ "$FAIL" == "0" ];
 then
