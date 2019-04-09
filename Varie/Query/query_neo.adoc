@@ -107,3 +107,14 @@ match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
 return g.name as Nome_gruppo, g.country as Paese, g.city as Città, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
 order by Numero_eventi_organizzati desc
 ----
+
+
+* Topic eventi numerosi (response=yes)
+
+[source, cypher]
+----
+match (t:Topic)<-[:DEALS_WITH ]-(g:Group)-[:HOSTED_EVENT]-(e:Event)<-[will:WILL_PARTECIPATES]-(m:Member)
+where will.response='yes'
+return  e.id, e.name, collect(distinct t.name) as topic_list ,g.name, g.id, count(distinct m) as partecipants_count
+order by partecipants_count desc
+----
