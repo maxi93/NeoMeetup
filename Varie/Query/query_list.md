@@ -1,11 +1,7 @@
 ﻿#### Statistiche presa dati:
-<<<<<<< HEAD
-- numeri del progetto
-- prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
-=======
 - Numeri del progetto
 - Prestazioni: cenni a tentativi (py2neo, csv etc) e scalabilità (diverso amount di data) 
->>>>>>> 773f3e23b06c13dacbb19cc49ecd0719de20ef84
+
 
 
 
@@ -37,11 +33,7 @@
 
 
 #### Tempo di risposta (mtime)
-<<<<<<< HEAD
-- analisi distribuzione temporale di risposte (rispetto a geo) [da effettuare sul csv]
-=======
-- Analisi distribuzione temporale di risposte (rispetto a geo)
->>>>>>> 773f3e23b06c13dacbb19cc49ecd0719de20ef84
+- Analisi distribuzione temporale di risposte (rispetto a geo) [da effettuare sul csv]
 
 #### Events:
 	
