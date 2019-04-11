@@ -13,14 +13,14 @@ return e.name as Name, e.newtime as Time
 order by Time
 ----
 
-* Eventi con venues e numerosità partecipanti (response yes)
+* Eventi con venues e numerositï¿½ partecipanti (response yes)
 
 [source, cypher]
 ----
 match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
 (e) - [h:HOSTED_AT] -> (v:Venue)
 where r.response = "yes"
-return e.name as Evento, count (m) as Partecipanti, v.name as Incontro 
+return e.name as Evento, count (m) as Partecipanti, v.name as Incontro
 order by Partecipanti desc
 ----
 
@@ -73,12 +73,12 @@ return distinct t.name as Topic, count(g) as Totale_gruppi
 order by Totale_gruppi desc
 ----
 
-* Location più utilizzate per gli eventi (con localizzazione)
+* Location piï¿½ utilizzate per gli eventi (con localizzazione)
 [source, cypher]
 ----
 match (v:Venue)<-[r:HOSTED_AT]-(e:Event)
-return v.name as Nome_ritrovo, v.lat as Latitudine, v.lon as Longitudine, count(e) as Quantità_eventi
-order by Quantità_eventi desc
+return v.name as Nome_ritrovo, v.lat as Latitudine, v.lon as Longitudine, count(r) as Quantitï¿½_eventi
+order by Quantitï¿½_eventi desc
 ----
 
 * Numero di eventi per Paese
@@ -90,21 +90,21 @@ return count(e) as Numero_eventi,g.country as Paese
 order by Numero_eventi desc
 ----
 
-* Numerosità gruppi
+* Numerositï¿½ gruppi
 
 [source, cypher]
 ----
 match (m:Member)-[r:MEMBER_OF]->(g:Group)
-return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as Longitudine, g.country as Paese, g.city as Città
+return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as Longitudine, g.country as Paese, g.city as Cittï¿½
 order by Membri desc
 ----
 
-* Numerosità eventi organizzati dai singoli gruppi
+* Numerositï¿½ eventi organizzati dai singoli gruppi
 
 [source, cypher]
 ----
 match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
-return g.name as Nome_gruppo, g.country as Paese, g.city as Città, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
+return g.name as Nome_gruppo, g.country as Paese, g.city as Cittï¿½, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
 order by Numero_eventi_organizzati desc
 ----
 
