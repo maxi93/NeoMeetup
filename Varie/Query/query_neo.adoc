@@ -9,7 +9,7 @@
 
 match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
 where e.time is not null
-return e.name as Name, e.newtime as Time, g.country as Country, g.state as State
+return e.name as Name, e.newtime as Time, g.country as Country, g.state as State, g.lon as Lon, g.lat as Lat
 order by Name, Time desc
 ----
 
