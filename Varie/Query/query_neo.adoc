@@ -4,12 +4,12 @@
 
 [source, cypher]
 ----
-// match (e:Event)
-// set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss')
+//match (e:Event)
+//set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss','GMT0:00')
 
-match (e:Event)
+match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
 where e.time is not null
-return e.name as Name, e.newtime as Time
+return e.name as Name, e.newtime as Time, g.country as Country, g.state as State, g.lon as Lon, g.lat as Lat
 order by Name, Time desc
 ----
 
