@@ -4,23 +4,23 @@
 
 [source, cypher]
 ----
-// match (e:Event)
-// set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss')
+//match (e:Event)
+//set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss','GMT0:00')
 
-match (e:Event)
+match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
 where e.time is not null
-return e.name as Name, e.newtime as Time
-order by Time
+return e.name as Name, e.newtime as Time, g.country as Country, g.state as State
+order by Name, Time desc
 ----
 
-* Eventi con venues e numerosit‡ partecipanti (response yes)
+* Eventi con venues e numerosit√† partecipanti (response yes)
 
 [source, cypher]
 ----
 match (e:Event) <- [r:WILL_PARTECIPATES] - (m:Member),
 (e) - [h:HOSTED_AT] -> (v:Venue)
 where r.response = "yes"
-return e.name as Evento, count (m) as Partecipanti, v.name as Incontro 
+return e.name as Evento, count (m) as Partecipanti, v.name as Incontro
 order by Partecipanti desc
 ----
 
@@ -73,12 +73,12 @@ return distinct t.name as Topic, count(g) as Totale_gruppi
 order by Totale_gruppi desc
 ----
 
-* Location pi˘ utilizzate per gli eventi (con localizzazione)
+* Location pi√π utilizzate per gli eventi (con localizzazione)
 [source, cypher]
 ----
 match (v:Venue)<-[r:HOSTED_AT]-(e:Event)
-return v.name as Nome_ritrovo, v.lat as Latitudine, v.lon as Longitudine, count(e) as Quantit‡_eventi
-order by Quantit‡_eventi desc
+return v.name as Nome_ritrovo, v.lat as Latitudine, v.lon as Longitudine, count(r) as Quantit√†_eventi
+order by Quantit√†_eventi desc
 ----
 
 * Numero di eventi per Paese
@@ -90,21 +90,21 @@ return count(e) as Numero_eventi,g.country as Paese
 order by Numero_eventi desc
 ----
 
-* Numerosit‡ gruppi
+* Numerosit√† gruppi
 
 [source, cypher]
 ----
 match (m:Member)-[r:MEMBER_OF]->(g:Group)
-return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as Longitudine, g.country as Paese, g.city as Citt‡
+return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as Longitudine, g.country as Paese, g.city as CittÔøΩ
 order by Membri desc
 ----
 
-* Numerosit‡ eventi organizzati dai singoli gruppi
+* Numerosit√† eventi organizzati dai singoli gruppi
 
 [source, cypher]
 ----
 match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
-return g.name as Nome_gruppo, g.country as Paese, g.city as Citt‡, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
+return g.name as Nome_gruppo, g.country as Paese, g.city as Citt√†, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
 order by Numero_eventi_organizzati desc
 ----
 
