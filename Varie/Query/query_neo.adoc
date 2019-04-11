@@ -104,7 +104,7 @@ order by Membri desc
 [source, cypher]
 ----
 match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
-return g.name as Nome_gruppo, g.country as Paese, g.city as Citt�, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
+return g.name as Nome_gruppo, g.country as Paese, g.city as Città, g.lat as Latitudine, g.lon as Longitudine, count(e) as Numero_eventi_organizzati
 order by Numero_eventi_organizzati desc
 ----
 
