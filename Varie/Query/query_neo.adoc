@@ -90,7 +90,7 @@ return count(e) as Numero_eventi,g.country as Paese
 order by Numero_eventi desc
 ----
 
-* Numerosit� gruppi
+* Numerosità gruppi
 
 [source, cypher]
 ----
@@ -99,7 +99,7 @@ return count(m) as Membri, g.name as Nome_gruppo, g.lat as Latitudine, g.lon as 
 order by Membri desc
 ----
 
-* Numerosit� eventi organizzati dai singoli gruppi
+* Numerosità eventi organizzati dai singoli gruppi
 
 [source, cypher]
 ----
