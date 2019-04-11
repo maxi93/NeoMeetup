@@ -13,6 +13,7 @@ import sys
 import pandas as pd
 import numpy as np
 
+import yaml
 UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
 
@@ -53,26 +54,25 @@ def main():
         #count=0
         #for line in member_df.itertuples(): #basic
         #for x, y in pairwise(member_df.itertuples()): #pairs
-		print "requesting http://api.meetup.com/2/members"        
-		for z in grouper(member_df.itertuples(),3): #groups
+        print "requesting http://api.meetup.com/2/members"        
+        for z in grouper(member_df.itertuples(),3): #groups
             
-        	#request parameters	
+            #request parameters	
             per_page = 1
             #results_we_got = per_page #more pages output
             offset = 0            
        
-			#get id
-			   
-	    	id_0=member_df.iloc[z[0].Index]['member_id']
+            #get id
+            
+            id_0=member_df.iloc[z[0].Index]['member_id']
             id_1=member_df.iloc[z[1].Index]['member_id']
             id_2=member_df.iloc[z[2].Index]['member_id']
-			
 
             # Meetup.com documentation here: http://www.meetup.com/meetup_api/docs/2/groups/
             response0=get_results({"member_id":id_0, "key":max_key, "page":per_page, "offset":offset})
             response1=get_results({"member_id":id_1, "key":my_api_key, "page":per_page, "offset":offset})
             response2=get_results({"member_id":id_2, "key":fabri_key, "page":per_page, "offset":offset})
-			
+
             time.sleep(0.17) #PLS U NO BAN me
             offset += 1
             #results_we_got = response['meta']['count']              
@@ -86,31 +86,69 @@ def main():
             for elem in data0:
                 if elem['topics']:
                     #print elem['topics']
-                    member_df['topics'].at[z[0].Index]=elem['topics']
-                #print "##########\n###########"
+                    topic_list=[]
+                    for e in elem['topics']:
+                        a=json.dumps(e)
+                        b=json.loads(a) #unicode prob
+                        #print b['urlkey']
+                        topic_list.append(str(b['urlkey']).encode('utf-8'))
+                        #print topic_list
+                        
+                        #[topic for topic in topic_list]
+                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                        #print c['urlkey']
+                                          
+                    #member_df['topics'].at[z[0].Index]=elem['topics']
+                    member_df['topics'].at[z[0].Index]=topic_list
+            
+            
             for elem in data1:
                 if elem['topics']:
-                    print elem['topics']
-                    member_df['topics'].at[z[1].Index]=elem['topics']
-                print "##########\n###########"
+                    #print elem['topics']
+                    topic_list=[]
+                    for e in elem['topics']:
+                        a=json.dumps(e)
+                        b=json.loads(a) #unicode prob
+                        #print b['urlkey']
+                        topic_list.append(str(b['urlkey']).encode('utf-8'))
+                        #print topic_list
+                        
+                        #[topic for topic in topic_list]
+                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                        #print c['urlkey']
+                                          
+                    #member_df['topics'].at[z[0].Index]=elem['topics']
+                    member_df['topics'].at[z[0].Index]=topic_list
             for elem in data2:
                 if elem['topics']:
-                    print elem['topics']
-                    member_df['topics'].at[z[2].Index]=elem['topics']
-                print "##########\n###########"
-        
+                    #print elem['topics']
+                    topic_list=[]
+                    for e in elem['topics']:
+                        a=json.dumps(e)
+                        b=json.loads(a) #unicode prob
+                        #print b['urlkey']
+                        topic_list.append(str(b['urlkey']).encode('utf-8'))
+                        #print topic_list
+                        
+                        #[topic for topic in topic_list]
+                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                        #print c['urlkey']
+                                          
+                    #member_df['topics'].at[z[0].Index]=elem['topics']
+                    member_df['topics'].at[z[0].Index]=topic_list
+            
             if response0 is block_alert:
                 break
             if response1 is block_alert:
                 break
             if response2 is block_alert:
                 break
-            print count
-            if count is 100:
-                break
+            #print count
+            #if count is 100:
+            #    break
             
         print member_df.head()
-		print "exporting to csv"
+        print "exporting to csv"
         member_df.to_csv("../Csv/member_enriched.csv")
 
 
@@ -118,13 +156,8 @@ def get_results(params):
 
     request = requests.get("http://api.meetup.com/2/members",params=params)
     data = request.json()
-    #print data
-    #if count :
-    #    print "#####\n dataaa is \n##########"
-    #    print data
     #iter_data=json.load(data)
     #a=data['results']
-    #print(a)
     #for elem in a:
         #print(elem['topics'])
     #print(request)
