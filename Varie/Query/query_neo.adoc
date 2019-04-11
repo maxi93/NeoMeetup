@@ -10,7 +10,7 @@
 match (e:Event)
 where e.time is not null
 return e.name as Name, e.newtime as Time
-order by Time
+order by Name, Time desc
 ----
 
 * Eventi con venues e numerosità partecipanti (response yes)
