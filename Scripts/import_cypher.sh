@@ -44,6 +44,7 @@ cat ${SCRIPT_DIR}/groups_from_csv.cql |nohup bash -ci 'cypher' & >> out1.out
 
 wait `jobs -p` || let "FAIL+=1"
 
+#remember to add the new .cql (or maybe not? depending on what we actually want with declared topics and stuffs)
 : '
 echo "importing events"
 cat ${SCRIPT_DIR}/events_from_csv.cql |bash -ci 'cypher'

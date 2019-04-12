@@ -13,26 +13,28 @@ import sys
 import pandas as pd
 import numpy as np
 
-import yaml
-UTF8Writer = codecs.getwriter('utf8')
-sys.stdout = UTF8Writer(sys.stdout)
+from itertools import izip #iter pairwise
+from itertools import izip_longest #iter over tuples
 
-
-from itertools import izip
-from itertools import izip_longest
+#import yaml #alternative solution for json probs
+#UTF8Writer = codecs.getwriter('utf8') #toUtf8 stuffs, nevermind
+#sys.stdout = UTF8Writer(sys.stdout)
 
 debug=0
+debug_count=0
 member_df=pd.read_csv("../Csv/Struttura/member.csv")
-print member_df.head()
+print member_df.head(2)
 
 member_ids=member_df['member_id']
 member_df['topics']="nan"
 #print member_df.head()
 
+#remember to hide it after 
 fabri_key="2e12625a12642d6ac743d19566c393e"
 max_key="445811b5a6b424f7e79342826176d"
 my_api_key= "546938372953301546964e404246e"
-        
+
+#not really working but who cares 
 block_alert={u'problem': u'Client throttled', u'code': u'throttled', u'details': u'Credentials have been throttled'}
 
 #iterating tuples at once
@@ -52,11 +54,14 @@ def grouper(iterable, n, fillvalue=None):
 
 def main():
         # Get your key here https://secure.meetup.com/meetup_api/key/
-        #count=0
-        count=None
-        #for line in member_df.itertuples(): #basic
-        #for x, y in pairwise(member_df.itertuples()): #pairs
-        print "requesting http://api.meetup.com/2/members"        
+        excp_count=0
+        count=0
+        #count=None
+        
+        print "requesting at http://api.meetup.com/2/members"        
+
+        #for line in member_df.itertuples():           #basic iter
+        #for x, y in pairwise(member_df.itertuples()): #pairs iter
         for z in grouper(member_df.itertuples(),3): #groups
             
             #request parameters	
@@ -64,23 +69,24 @@ def main():
             #results_we_got = per_page #more pages output
             offset = 0            
        
-            #get id
-            
+            #get id (one should really vectorize it)
             id_0=member_df.iloc[z[0].Index]['member_id']
             id_1=member_df.iloc[z[1].Index]['member_id']
             id_2=member_df.iloc[z[2].Index]['member_id']
 
             # Meetup.com documentation here: http://www.meetup.com/meetup_api/docs/2/groups/
-            response0=get_results({"member_id":id_0, "key":max_key, "page":per_page, "offset":offset})
-            response1=get_results({"member_id":id_1, "key":my_api_key, "page":per_page, "offset":offset})
-            response2=get_results({"member_id":id_2, "key":fabri_key, "page":per_page, "offset":offset})
-
+            try:    
+                response0=get_results({"member_id":id_0, "key":max_key, "page":per_page, "offset":offset}, count, excp_count)
+                response1=get_results({"member_id":id_1, "key":my_api_key, "page":per_page, "offset":offset}, count, excp_count)
+                response2=get_results({"member_id":id_2, "key":fabri_key, "page":per_page, "offset":offset}, count, excp_count)
+            except Exception as e:
+                print "exception encountered at requesting: "
+                print e
             time.sleep(0.17) #PLS U NO BAN me
             offset += 1
             #results_we_got = response['meta']['count']              
             #time.sleep(1)
-            if count is not None:
-                count+=1
+            count+=1
             if debug:
                 print "resp 0"
                 print response0
@@ -89,6 +95,7 @@ def main():
                 print "resp 2"
                 print response2
             
+            #one should really loop over those
             try:
                 data0=response0['results']
 
@@ -103,17 +110,21 @@ def main():
                             topic_list.append(str(b['urlkey']).encode('utf-8'))
                             #print topic_list
 
-                            #[topic for topic in topic_list]
                             #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
                             #print c['urlkey']
 
-                        #member_df['topics'].at[z[0].Index]=elem['topics']
-                        member_df['topics'].at[z[0].Index]=topic_list
+                        #member_df['topics'].at[z[0].Index]=elem['topics'] #get the whole list of dicts 
+                        member_df['topics'].at[z[0].Index]=topic_list #get only the topic urlkey list
             except Exception as e:
                 print "exception in response0: "
                 print e
+                print "is the "+str(count)+"-th iteration"
+                try: 
+                    print "response is: "
+                    print response0
+                except:
+                    pass
                                                     
-            
             try:
                 data1=response1['results']
 
@@ -128,7 +139,6 @@ def main():
                             topic_list.append(str(b['urlkey']).encode('utf-8'))
                             #print topic_list
 
-                            #[topic for topic in topic_list]
                             #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
                             #print c['urlkey']
 
@@ -137,7 +147,7 @@ def main():
             except Exception as e:
                 print "exception in response1: "
                 print e
-            
+                print "is the "+str(count)+"-th iteration"
             try:                                        
                 data2=response2['results']
 
@@ -152,15 +162,15 @@ def main():
                             topic_list.append(str(b['urlkey']).encode('utf-8'))
                             #print topic_list
 
-                            #[topic for topic in topic_list]
                             #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
                             #print c['urlkey']
 
                         #member_df['topics'].at[z[0].Index]=elem['topics']
-                            member_df['topics'].at[z[0].Index]=topic_list
+                        member_df['topics'].at[z[0].Index]=topic_list
             except Exception as e:
                 print "exception in response2: "
                 print e
+                print "is the "+str(count)+"-th iteration"
             
             if response0 is block_alert:
                 print "throttle alert on response 0 (max key)"
@@ -171,7 +181,7 @@ def main():
             if response2 is block_alert:
                 print "throttle alert on response 2 (fabri key)"
                 break
-            if count is not None:
+            if debug_count:
                 print "count is"+ str(count)
                 if count is 100:
                     break
@@ -181,7 +191,7 @@ def main():
         member_df.to_csv("../Csv/member_enriched.csv")
 
 
-def get_results(params):
+def get_results(params, count, excp_count):
 
     request = requests.get("http://api.meetup.com/2/members",params=params)
     try:
@@ -195,8 +205,10 @@ def get_results(params):
         print "exception in loading request.json()"
         print e
         print request
-        print "exiting"
-        sys.exit()
+        print request.content
+        excp_count+=1
+        print "is the "+str(excp_count)+"-th exception at the "+ str(count) + "iteration"
+        pass
      
     return data
 
