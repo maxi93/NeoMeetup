@@ -21,6 +21,7 @@ sys.stdout = UTF8Writer(sys.stdout)
 from itertools import izip
 from itertools import izip_longest
 
+debug=0
 member_df=pd.read_csv("../Csv/Struttura/member.csv")
 print member_df.head()
 
@@ -52,6 +53,7 @@ def grouper(iterable, n, fillvalue=None):
 def main():
         # Get your key here https://secure.meetup.com/meetup_api/key/
         #count=0
+        count=None
         #for line in member_df.itertuples(): #basic
         #for x, y in pairwise(member_df.itertuples()): #pairs
         print "requesting http://api.meetup.com/2/members"        
@@ -77,75 +79,102 @@ def main():
             offset += 1
             #results_we_got = response['meta']['count']              
             #time.sleep(1)
-            #count+=1
-           
-            data0=response0['results']
-            data1=response1['results']
-            data2=response2['results']
+            if count is not None:
+                count+=1
+            if debug:
+                print "resp 0"
+                print response0
+                print "resp 1"
+                print response1
+                print "resp 2"
+                print response2
             
-            for elem in data0:
-                if elem['topics']:
-                    #print elem['topics']
-                    topic_list=[]
-                    for e in elem['topics']:
-                        a=json.dumps(e)
-                        b=json.loads(a) #unicode prob
-                        #print b['urlkey']
-                        topic_list.append(str(b['urlkey']).encode('utf-8'))
-                        #print topic_list
-                        
-                        #[topic for topic in topic_list]
-                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
-                        #print c['urlkey']
-                                          
-                    #member_df['topics'].at[z[0].Index]=elem['topics']
-                    member_df['topics'].at[z[0].Index]=topic_list
+            try:
+                data0=response0['results']
+
+                for elem in data0:
+                    if elem['topics']:
+                        #print elem['topics']
+                        topic_list=[]
+                        for e in elem['topics']:
+                            a=json.dumps(e)
+                            b=json.loads(a) #unicode prob
+                            #print b['urlkey']
+                            topic_list.append(str(b['urlkey']).encode('utf-8'))
+                            #print topic_list
+
+                            #[topic for topic in topic_list]
+                            #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                            #print c['urlkey']
+
+                        #member_df['topics'].at[z[0].Index]=elem['topics']
+                        member_df['topics'].at[z[0].Index]=topic_list
+            except Exception as e:
+                print "exception in response0: "
+                print e
+                                                    
             
+            try:
+                data1=response1['results']
+
+                for elem in data1:
+                    if elem['topics']:
+                        #print elem['topics']
+                        topic_list=[]
+                        for e in elem['topics']:
+                            a=json.dumps(e)
+                            b=json.loads(a) #unicode prob
+                            #print b['urlkey']
+                            topic_list.append(str(b['urlkey']).encode('utf-8'))
+                            #print topic_list
+
+                            #[topic for topic in topic_list]
+                            #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                            #print c['urlkey']
+
+                        #member_df['topics'].at[z[0].Index]=elem['topics']
+                        member_df['topics'].at[z[0].Index]=topic_list
+            except Exception as e:
+                print "exception in response1: "
+                print e
             
-            for elem in data1:
-                if elem['topics']:
-                    #print elem['topics']
-                    topic_list=[]
-                    for e in elem['topics']:
-                        a=json.dumps(e)
-                        b=json.loads(a) #unicode prob
-                        #print b['urlkey']
-                        topic_list.append(str(b['urlkey']).encode('utf-8'))
-                        #print topic_list
-                        
-                        #[topic for topic in topic_list]
-                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
-                        #print c['urlkey']
-                                          
-                    #member_df['topics'].at[z[0].Index]=elem['topics']
-                    member_df['topics'].at[z[0].Index]=topic_list
-            for elem in data2:
-                if elem['topics']:
-                    #print elem['topics']
-                    topic_list=[]
-                    for e in elem['topics']:
-                        a=json.dumps(e)
-                        b=json.loads(a) #unicode prob
-                        #print b['urlkey']
-                        topic_list.append(str(b['urlkey']).encode('utf-8'))
-                        #print topic_list
-                        
-                        #[topic for topic in topic_list]
-                        #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
-                        #print c['urlkey']
-                                          
-                    #member_df['topics'].at[z[0].Index]=elem['topics']
-                    member_df['topics'].at[z[0].Index]=topic_list
+            try:                                        
+                data2=response2['results']
+
+                for elem in data2:
+                    if elem['topics']:
+                        #print elem['topics']
+                        topic_list=[]
+                        for e in elem['topics']:
+                            a=json.dumps(e)
+                            b=json.loads(a) #unicode prob
+                            #print b['urlkey']
+                            topic_list.append(str(b['urlkey']).encode('utf-8'))
+                            #print topic_list
+
+                            #[topic for topic in topic_list]
+                            #c= yaml.safe_load(a) #alternative in case of utf8 representation, keep it just as a reminder
+                            #print c['urlkey']
+
+                        #member_df['topics'].at[z[0].Index]=elem['topics']
+                            member_df['topics'].at[z[0].Index]=topic_list
+            except Exception as e:
+                print "exception in response2: "
+                print e
             
             if response0 is block_alert:
+                print "throttle alert on response 0 (max key)"
                 break
             if response1 is block_alert:
+                print "throttle alert on response 1 (my key)"
                 break
             if response2 is block_alert:
+                print "throttle alert on response 2 (fabri key)"
                 break
-            #print count
-            #if count is 100:
-            #    break
+            if count is not None:
+                print "count is"+ str(count)
+                if count is 100:
+                    break
             
         print member_df.head()
         print "exporting to csv"
@@ -155,13 +184,19 @@ def main():
 def get_results(params):
 
     request = requests.get("http://api.meetup.com/2/members",params=params)
-    data = request.json()
-    #iter_data=json.load(data)
-    #a=data['results']
-    #for elem in a:
-        #print(elem['topics'])
-    #print(request)
-    
+    try:
+        data = request.json()
+        #iter_data=json.load(data)
+        #a=data['results']
+        #for elem in a:
+            #print(elem['topics'])
+        #print(request)
+    except Exception as e:
+        print "exception in loading request.json()"
+        print e
+        print request
+        print "exiting"
+        sys.exit()
      
     return data
 
