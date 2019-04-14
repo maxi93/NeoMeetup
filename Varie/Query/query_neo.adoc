@@ -1,4 +1,4 @@
-= Lista di query eseguite con successo
+﻿= Lista di query eseguite con successo
 
 * Distribuzione temporale eventi (time non nullo)
 
@@ -117,4 +117,15 @@ match (t:Topic)<-[:DEALS_WITH ]-(g:Group)-[:HOSTED_EVENT]-(e:Event)<-[will:WILL_
 where will.response='yes'
 return  e.id, e.name, collect(distinct t.name) as topic_list ,g.name, g.id, count(distinct m) as partecipants_count
 order by partecipants_count desc
+----
+
+
+* Massimo numero di partecipanti ad un evento per Paese
+
+[source, cypher]
+----
+match (m:Member)-[r:WILL_PARTECIPATES]->(e:Event)<-[r1:HOSTED_EVENT]-(g:Group)
+with count(m) as part, e, g
+return max(part) as max_part, g.country
+order by max_part desc
 ----
