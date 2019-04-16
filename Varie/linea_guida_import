@@ -17,7 +17,7 @@ create event.csv: make_event_csv.py
 
 create venues.csv: make_venue_csv.py
 
-create relations_group-event.csv: relations_group-event.py
+create relations_groups-events.csv: relations_group-event.py
 
 create relations_events-venues.csv: relations_event-venue.py
 
@@ -36,10 +36,10 @@ cypher
 create nodes
 
 members: create_members_from_csv.cql
-groups: groups_from_csv.cql
+groups: create_groups_from_csv.cql
 topics: create_topics_from_csv.cql
-events: events_from_csv.cql
-venues: venues_from_csv.cql
+events: create_events_from_csv.cql
+venues: create_venues_from_csv.cql
 
 
 relations
