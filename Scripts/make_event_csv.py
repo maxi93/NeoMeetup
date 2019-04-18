@@ -2,6 +2,7 @@
 import json
 import csv
 import ast
+import re
 import time
 from pprint import pprint
 from kafka import KafkaConsumer
@@ -17,6 +18,7 @@ events= {}
 for count, filename in enumerate(consumer):
     try:
         j = json.loads(filename.value)
+        j['event']['event_name'] = re.sub('\"*\'*','',j['event']['event_name'])
         event_id = j['event']['event_id']
         try:
             if event_id not in events:
