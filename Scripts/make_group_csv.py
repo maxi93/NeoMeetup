@@ -46,7 +46,7 @@ print " names dict lenght: "+str(len(groups))
 
 #print groups
 #pprint(groups)
-with open('/root/NeoMeetup/csv/group.csv', 'wb') as f:  
+with open('/root/NeoMeetup/struttura/csv/group.csv', 'wb') as f:  
 	fields=["group_id","group_city","group_country","group_lat","group_lon","group_name","group_state","group_topics","group_urlname"]
 	w = csv.DictWriter(f, fields)
 	w.writeheader()
