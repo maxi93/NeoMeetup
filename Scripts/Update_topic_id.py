@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[8]:
-
-
 #!/usr/bin/python
 import json
 import csv
@@ -24,7 +18,7 @@ start_t=time.time()
 # In[10]:
 
 
-df = pd.read_csv("../Csv/Struttura/relations_topics.csv")
+df = pd.read_csv("..csv/struttura/relations_topics.csv")
 
 
 # In[11]:
@@ -36,7 +30,7 @@ df.head()
 # In[12]:
 
 
-df1= pd.read_csv("../Csv/Struttura/member_enriched.csv")
+df1= pd.read_csv("..csv/struttura/member_enriched.csv")
 
 
 # In[13]:
@@ -186,9 +180,6 @@ df_c.head(50)
 
 # In[10]:
 
-time=time.time()-start_t
-#print "completed in "+str(time)
-
 
 # In[30]:
 
@@ -206,7 +197,7 @@ df_create_topic.head(50)
 # In[34]:
 
 
-df_create_topic.to_csv("../Csv/Struttura/Create_topic_nodes.csv", index=False)
+df_create_topic.to_csv("../csv/struttura/Create_topic_nodes.csv", index=False)
 
 
 # In[35]:
@@ -230,7 +221,7 @@ df_topic_interest.drop(columns='type', inplace=True)
 # In[40]:
 
 
-df_topic_interest.to_csv("../Csv/Struttura/relations_topics_with_id.csv", index=False)
+df_topic_interest.to_csv("../csv/struttura/relations_topics_with_id.csv", index=False)
 
 
 # In[41]:
@@ -249,7 +240,7 @@ df_topic_decleared.drop(columns=['type','group_id','topic_name'], inplace=True)
 # In[46]:
 
 
-df_topic_decleared.to_csv("../Csv/Struttura/relations_decleared_topics.csv", index=False)
+df_topic_decleared.to_csv("../csv/struttura/relations_decleared_topics.csv", index=False)
 
 
 # In[ ]:
@@ -260,6 +251,7 @@ df_topic_decleared.to_csv("../Csv/Struttura/relations_decleared_topics.csv", ind
 
 # In[ ]:
 
-
+time=(time.time()-start_t)/60
+print "completed in "+str(time)+" minutes"
 
 
