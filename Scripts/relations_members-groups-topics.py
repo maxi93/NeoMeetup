@@ -23,15 +23,15 @@ with open("/root/NeoMeetup/csv/struttura/relations_topics.csv", "wb") as csv:
             group_topics = j['group']['group_topics']
             for topic in group_topics:
                 try:
-                    csv.write(str(j['group']['group_id'])+","+str(j['member']['member_id'])+","+
-                             str(topic['topic_name'].encode('utf-8'))+","+str(topic['urlkey'].encode('utf-8'))+"\n")
+                    csv.write(str(j['group']['group_id'])+","+str(j['member']['member_id'])+",\""+
+                             str(topic['topic_name'].encode('utf-8'))+"\","+str(topic['urlkey'].encode('utf-8'))+"\n")
                 except Exception as e: 
                     print e
                     break
         except Exception as ex: 
             print ex
             break
-        '''if count==1000:
+        '''if count==100000:
             print "count is "+str(count)
             break'''
 end = time.time()

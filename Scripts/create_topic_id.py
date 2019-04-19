@@ -3,25 +3,15 @@ import json
 import csv
 import ast
 from pprint import pprint
-#from kafka import KafkaConsumer
 import time
 import pandas as pd
 from pandas import DataFrame as df
 
 
-# In[2]:
 start_t=time.time()
 
-df = pd.read_csv("Csv/relations_topics.csv")
+df = pd.read_csv("/root/NeoMeetup/csv/struttura/relations_topics.csv")
 
-
-# In[3]:
-
-
-#df.head()
-
-
-# In[4]:
 
 
 df.sort_values('urlkey', inplace=True)
@@ -78,8 +68,8 @@ df.head(50)
 
 # In[10]:
 
-time=time.time()-start_t
-print "completed in "+str(time)
+time=(time.time()-start_t)/60
+print "completed in "+str(time)+" minutes"
 
-df.to_csv("relations_topic_with_id.csv")
+df.to_csv("/root/NeoMeetup/csv/struttura/relations_topic_with_id.csv")
 
