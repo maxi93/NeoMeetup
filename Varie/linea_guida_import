@@ -16,6 +16,8 @@ create 	venues.csv: 				make_venue_csv.py
 
 create 	relations_topics.csv: 			relations_members-groups-topics.py
 
+---Update_topic_id.py (che genera i seguenti csv) da usare solo una volta ottenuti i "decleared" topics dalla REST api
+---per il momento usare create_topic_id.py
 create	Create_topic_nodes.csv (csv per creare i nodi topic su neo), 
 	relations_topic_with_id.csv (csv per le relazioni member-[HAS_INTEREST_IN]->topic) 
 	relations_decleared_topics.csv (csv per le relazioni member-[DECLEARED_INTEREST_IN]->topic): Update_topic_id.py 
