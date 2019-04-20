@@ -1,0 +1,815 @@
+   member_id    member_name
+0  220200963    Sarah Roxas
+1  253755396  Lupco Trpeski
+requesting at http://api.meetup.com/2/members
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 8iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 11iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 11iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 12iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 20iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 21iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 21iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 49iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 51iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 57iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 60iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 64iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 71iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 74iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 78iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 82iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 94iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 99iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 103iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 118iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 140iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 139iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 149iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 154iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 158iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 162iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 168iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 168iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 173iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 175iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 175iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 178iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 178iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 189iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 206iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 207iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 211iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 216iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 226iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 226iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 228iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 229iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 230iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 234iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 252iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 256iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 271iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 274iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 282iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 289iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 299iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 307iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 315iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 326iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 326iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 340iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 354iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 357iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 362iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 366iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 365iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 366iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 391iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 394iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 405iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 406iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 412iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 416iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 418iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 422iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 425iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 427iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 427iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 435iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 441iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 451iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 453iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 455iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 463iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 466iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 467iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 467iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 470iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 479iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 479iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 487iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 499iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 502iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 510iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 514iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 519iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 532iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 543iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 549iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 558iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 563iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 574iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 588iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 589iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 602iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 605iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 607iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 615iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 616iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 624iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 626iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 637iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 638iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 650iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 660iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 675iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 679iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 679iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 682iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+exception in loading request.json()
+No JSON object could be decoded
+<Response [200]>
+
+internal exception at the 689iteration
+exception encountered at requesting: 
+local variable 'data' referenced before assignment
+Traceback (most recent call last):
+  File "./member_enrich_april.py", line 221, in <module>
+    main()
+  File "./member_enrich_april.py", line 85, in main
+    time.sleep(0.2) #PLS U NO BAN me
+KeyboardInterrupt
