@@ -46,10 +46,10 @@ from itertools import izip_longest #iter over tuples
 # In[141]:
 
 
-debug=1
-#debug=0
+#debug=1
+debug=0
 debug_count=1
-count_stopper=100
+#count_stopper=100
 
 
 # In[142]:
@@ -281,12 +281,12 @@ def main():
                 print "throttle alert on response 2 (fabri key)"
                 break
             if debug_count:
-                if tot_count is count_stopper:
-                    print "breaking"
-                    break
+                #if tot_count is count_stopper:
+                #    print "breaking"
+                #    break
                 if count is 50000:
                     print "partial count is"+ str(count)
-                    print "csv printed at iteration" + str(tot_count)+" to be multiplied *3 btw"
+                    print "csv printed at iteration" + str(tot_count)+" (to be multiplied *3 btw)"
                     member_df.to_csv("../csv/struttura/member_enriched_easter.csv")
                     count=0
             
