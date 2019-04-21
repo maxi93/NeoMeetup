@@ -1,0 +1,21 @@
+- Nodi 1472804
+
+	* Membri 839340
+	* Eventi 313882
+	* Gruppi 98513
+	* Venue 138132
+	* Topic 37937
+
+- Relazioni 17310432
+
+	* Event-Group 313882
+	* Event-Venue 284115
+	* Member-Event 1596201
+	* Member-Group 1186763
+	* Group-Topics 1102096
+	* Member-Topics 12827375
+
+- Totale righe csv members-groups-topics 25972400
+
+
+NB Prima di importare il tutto, per precauzione stoppare ogni servizio di Ambari.

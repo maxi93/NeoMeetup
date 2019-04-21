@@ -1,8 +1,7 @@
 //headers: venue_id,venue_name,lat,lon
 return "Importing venues";
 
-CREATE INDEX ON :Venue(id);
-CREATE INDEX ON :Venue(name);
+CREATE CONSTRAINT ON (venue:Venue) ASSERT venue.id IS UNIQUE;
 
 LOAD CSV WITH HEADERS FROM "file:///venue.csv" AS row
 WITH DISTINCT row.venue_id AS id, row.venue_name AS name, row.lat AS lat, row.lon AS lon 
