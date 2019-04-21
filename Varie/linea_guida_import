@@ -27,7 +27,7 @@ create 	relations_groups-events.csv: 		relations_group-event.py
 
 create 	relations_events-venues.csv: 		relations_event-venue.py
 
-create 	relations_members-event-response_new.csv: relations_members-event-response_new.py
+create 	relations_member-event-response_new.csv: relations_members-event-response_new.py
 
 create 	relations_members-groups.csv: 		relations_member-group.py
 ---
