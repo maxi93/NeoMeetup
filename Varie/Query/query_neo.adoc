@@ -5,12 +5,12 @@
 [source, cypher]
 ----
 //match (e:Event)
-//set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss','GMT0:00')
+//set e.newtime = apoc.date.format(e.time, 'ms', 'dd/MM/yyyy HH:mm:ss','GMT0:00'), conversione necessaria prima della nuova implementazione per le TZ
 
 match (g:Group)-[r:HOSTED_EVENT]->(e:Event)
 where e.time is not null
-return e.name as Name, e.newtime as Time, g.country as Country, g.state as State, g.lon as Lon, g.lat as Lat
-order by Name, Time desc
+return e.name as name, e.time as time, g.country as country, g.state as state, g.lon as lon, g.lat as lat
+order by name, time desc
 ----
 
 * Eventi con venues e numerosità partecipanti (response yes)
