@@ -2,6 +2,8 @@
 
 return "Importing member-group relations";
 
+USING PERIODIC COMMIT 50000
+
 LOAD CSV WITH HEADERS FROM "file:///relations_members-groups.csv" AS row
 MATCH (member:Member {id: row.member_id})
 MATCH (group:Group {id: row.group_id})
