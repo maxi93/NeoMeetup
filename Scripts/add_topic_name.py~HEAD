@@ -38,17 +38,19 @@ for count, line in enumerate(df.itertuples()):
     df['topic_name'].at[line.Index]=df['urlkey'].at[line.Index].replace("-", " ")
     #if count is 100:
     #    break
-df.head()
+print df.head()
 
 
 # In[20]:
 
 
-df.topic_name
+#print df.topic_name
+print df.topic_name.head()
+print df.topic_name.tail()
 
+df.to_csv("../csv/struttura/create_topic_nodes_with_names.csv")
 
 # In[ ]:
-
 
 
 
