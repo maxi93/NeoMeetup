@@ -6,7 +6,7 @@
 	* Venue 138132
 	* Topic 60274
 
-- Relazioni 17310432
+- Relazioni 27672465
 
 	* Event-Group 313882
 	* Event-Venue 284115
