@@ -1,7 +1,6 @@
 return "Importing members";
 
-CREATE INDEX ON :Member(id);
-CREATE INDEX ON :Member(name);
+CREATE CONSTRAINT ON (member:Member) ASSERT member.id IS UNIQUE;
 
 LOAD CSV WITH HEADERS FROM "file:///member.csv" AS row
 WITH DISTINCT row.member_id AS id, row.member_name AS name

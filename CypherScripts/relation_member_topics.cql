@@ -6,8 +6,7 @@ USING PERIODIC COMMIT 50000
 
 LOAD CSV WITH HEADERS FROM "file:///relations_topic_with_id.csv" AS row
 
-MATCH (member:Member {id: row.member_id})
-MATCH (topic:Topic {id: row.topic_id})
+MATCH (member:Member {id: row.member_id}), (topic:Topic {id: row.topic_id})
 MERGE (member)-[:IS_INTERESTED_IN]->(topic);
        
 return "Imported member-topics relations";

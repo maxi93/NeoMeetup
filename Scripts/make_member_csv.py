@@ -6,7 +6,7 @@ from kafka import KafkaConsumer
 consumer = KafkaConsumer(bootstrap_servers = 'sandbox-hdf.hortonworks.com:6667',
                          auto_offset_reset = 'earliest',
                          consumer_timeout_ms = 1000)
-consumer.subscribe(['project'])
+consumer.subscribe(['project_april'])
 print("subscribed to topic meetup")
 messages = []
 names = {}
@@ -36,7 +36,7 @@ print "################"
 print "processed messages: "+str(count)
 print " names dict lenght: "+str(len(names))
 
-with open("/root/meetup_stuffs/member.csv", 'wb') as f: 
+with open("/root/NeoMeetup/csv/struttura/member.csv", 'wb') as f: 
     w = csv.writer(f)
     w.writerow(['member_id','member_name'])
     w.writerows(names.items())

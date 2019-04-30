@@ -2,13 +2,16 @@
 import json
 import csv
 import ast
+import time
 from pprint import pprint
 from kafka import KafkaConsumer
+
+start_t=time.time()
 
 consumer = KafkaConsumer(bootstrap_servers = 'sandbox-hdf.hortonworks.com:6667',
                          auto_offset_reset = 'earliest',
                          consumer_timeout_ms = 1000)
-consumer.subscribe(['project'])
+consumer.subscribe(['project_april'])
 print("subscribed to topic meetup")
 venues= {}
 e_o=0
@@ -39,9 +42,12 @@ print "################"
 print "processed messages: "+str(count+1)
 print " names dict lenght: "+str(len(venues))
 
-with open('/root/meetup_stuffs/venue.csv', 'wb') as f:  
+with open('/root/NeoMeetup/csv/struttura/venue.csv', 'wb') as f:  
 	fields=["venue_id","venue_name","lat","lon"]
 	w = csv.DictWriter(f, fields)
 	w.writeheader()
 	for k in venues:
 		w.writerow({field: venues[k].get(field) or "NONE" for field in fields})
+
+time=(time.time()-start_t)/60
+print "completed in "+str(time)+" minutes"
