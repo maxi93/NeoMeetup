@@ -141,7 +141,7 @@ match (m)-[r:DECLARED_INTEREST_IN]->(t:Topic)
 with count(r) as dichiarati, corrispondenze, m
 match (m)-[r1:IS_INTERESTED_IN]-(t:Topic)
 with m, corrispondenze, dichiarati, count(r1) as interessato, toFloat(corrispondenze)/toFloat(count(r1)) as score1, toFloat(corrispondenze)/toFloat(dichiarati) as score2
-return m.id as ID, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score 
+return m.id as ID, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score
 order by avg_score desc
 ----
 
@@ -158,7 +158,7 @@ with count(r) as dichiarati, corrispondenze, m
 match (m)-[r1:IS_INTERESTED_IN]-(t:Topic)
 where m.lat is not null
 with m, corrispondenze, dichiarati, count(r1) as interessato, toFloat(corrispondenze)/toFloat(count(r1)) as score1, toFloat(corrispondenze)/toFloat(dichiarati) as score2
-return m.id as ID, m.lat as Lat, m.long as Lon, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score 
+return m.id as ID, m.lat as Lat, m.long as Lon, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score
 order by avg_score desc
 ----
 
@@ -190,4 +190,14 @@ match (m)-[r1:IS_INTERESTED_IN]-(t:Topic)
 with m, corrispondenze, dichiarati, count(r1) as interessato
 return m.id as ID, corrispondenze, dichiarati, interessato, (toFloat(corrispondenze))/((toFloat(dichiarati)+toFloat(interessato))-toFloat(corrispondenze)) as jac_similarity
 order by jac_similarity desc
+----
+
+distance_member_event (da fixare con variante per venues)
+----
+match (m:Member)-[r1:WILL_PARTECIPATES]->(e:Event)<-[r:HOSTED_EVENT]-(g:Group)
+where g.lon <> 'NONE' and m.lat is not null and r1.response = 'yes'
+//where e.id = "260241918"
+with point({latitude: toFloat(g.lat),longitude:toFloat(g.lon)}) as p1, point({latitude:toFloat(m.lat), longitude:toFloat(m.long)}) as p2, m.id as id_mem, e.id as id_event
+return id_mem, id_event, (max(distance(p1,p2)))/1000 as dist
+order by dist desc
 ----
