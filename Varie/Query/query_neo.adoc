@@ -129,3 +129,35 @@ with count(m) as part, e, g
 return max(part) as max_part, g.country
 order by max_part desc
 ----
+
+
+* Similarity measure between declared and group topics for every member
+
+[source, cypher]
+----
+match (m:Member)-[r:IS_INTERESTED_IN]->(t:Topic)<-[r1:DECLARED_INTEREST_IN]-(m)
+with count(t) as corrispondenze, m
+match (m)-[r:DECLARED_INTEREST_IN]->(t:Topic)
+with count(r) as dichiarati, corrispondenze, m
+match (m)-[r1:IS_INTERESTED_IN]-(t:Topic)
+with m, corrispondenze, dichiarati, count(r1) as interessato, toFloat(corrispondenze)/toFloat(count(r1)) as score1, toFloat(corrispondenze)/toFloat(dichiarati) as score2
+return m.id as ID, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score 
+order by avg_score desc
+----
+
+
+* Similarity measure between declared and group topics for every member (with lat/lon coordinates)
+[source, cypher]
+----
+match (m:Member)-[r:IS_INTERESTED_IN]->(t:Topic)<-[r1:DECLARED_INTEREST_IN]-(m)
+where m.lat is not null
+with count(t) as corrispondenze, m
+match (m)-[r:DECLARED_INTEREST_IN]->(t:Topic)
+where m.lat is not null
+with count(r) as dichiarati, corrispondenze, m
+match (m)-[r1:IS_INTERESTED_IN]-(t:Topic)
+where m.lat is not null
+with m, corrispondenze, dichiarati, count(r1) as interessato, toFloat(corrispondenze)/toFloat(count(r1)) as score1, toFloat(corrispondenze)/toFloat(dichiarati) as score2
+return m.id as ID, m.lat as Lat, m.long as Lon, corrispondenze, dichiarati, interessato, score1, score2, (score1 + score2)/2 as avg_score 
+order by avg_score desc
+----
