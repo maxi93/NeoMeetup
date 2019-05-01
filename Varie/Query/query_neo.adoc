@@ -192,12 +192,11 @@ return m.id as ID, corrispondenze, dichiarati, interessato, (toFloat(corrisponde
 order by jac_similarity desc
 ----
 
-distance_member_event (da fixare con variante per venues)
+* distance_member_event
 ----
 match (m:Member)-[r1:WILL_PARTECIPATES]->(e:Event)<-[r:HOSTED_EVENT]-(g:Group)
-where g.lon <> 'NONE' and m.lat is not null and r1.response = 'yes'
-//where e.id = "260241918"
-with point({latitude: toFloat(g.lat),longitude:toFloat(g.lon)}) as p1, point({latitude:toFloat(m.lat), longitude:toFloat(m.long)}) as p2, m.id as id_mem, e.id as id_event
-return id_mem, id_event, (max(distance(p1,p2)))/1000 as dist
+where g.lon <> 'NONE' and g.lat <> 'NONE' and m.lat is not null and m.long is not null and r1.response = 'yes'
+with point({latitude: toFloat(g.lat),longitude:toFloat(g.lon)}) as p1, point({latitude:toFloat(m.lat), longitude:toFloat(m.long)}) as p2, m.id as member_id, e.id as event_id, m.lat as lat_member, m.long as lon_member, g.lat as lat_event, g.lon as lon_event
+return member_id, event_id, lat_member, lon_member, lat_event, lon_event, (max(distance(p1,p2)))/1000 as dist
 order by dist desc
 ----
