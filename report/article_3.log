@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.2)  2 MAY 2019 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.2)  2 MAY 2019 17:24
 entering extended mode
 **./article_3.tex
 (article_3.tex
@@ -979,49 +979,49 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip69
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 56.
-Package hyperref Info: Option `breaklinks' set `true' on input line 56.
-Package hyperref Info: Option `bookmarksopen' set `false' on input line 56.
+Package hyperref Info: Option `colorlinks' set `true' on input line 58.
+Package hyperref Info: Option `breaklinks' set `true' on input line 58.
+Package hyperref Info: Option `bookmarksopen' set `false' on input line 58.
 
 (article_3.aux)
 \openout1 = `article_3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 82.
-LaTeX Font Info:    Try loading font information for LY1+ptm on input line 82.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 84.
+LaTeX Font Info:    Try loading font information for LY1+ptm on input line 84.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/ly1\ly1ptm.fd"
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 82.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 82.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 84.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 82.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 82.
-LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
 LaTeX Font Info:    Try loading font information for T1+Montserrat-TLF on input
- line 82.
+ line 84.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/montserrat\t1montserrat-tlf.fd"
 File: T1Montserrat-TLF.fd 2017/01/25 (autoinst) Font definitions for T1/Montser
 rat-TLF.
 )
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/n' will be
-(Font)              scaled to size 10.0pt on input line 82.
+(Font)              scaled to size 10.0pt on input line 84.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1088,8 +1088,8 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 82.
-LaTeX Info: Redefining \microtypecontext on input line 82.
+(lastpage)             ! on input line 84.
+LaTeX Info: Redefining \microtypecontext on input line 84.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1106,7 +1106,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 \c@mv@tabular=\count294
 \c@mv@boldtabular=\count295
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring ON on input line 82.
+Package hyperref Info: Link coloring ON on input line 84.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -1115,25 +1115,30 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 82.
-LaTeX Info: Redefining \pageref on input line 82.
-LaTeX Info: Redefining \nameref on input line 82.
+LaTeX Info: Redefining \ref on input line 84.
+LaTeX Info: Redefining \pageref on input line 84.
+LaTeX Info: Redefining \nameref on input line 84.
 
 (article_3.out) (article_3.out)
 \@outlinefile=\write3
 \openout3 = `article_3.out'.
 
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/n' will be
-(Font)              scaled to size 9.0pt on input line 87.
+(Font)              scaled to size 9.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 87.
+(Font)              scaled to size 9.0pt on input line 89.
+<./images/NeoMeetup.png, id=35, 1744.26656pt x 506.6428pt>
+File: ./images/NeoMeetup.png Graphic file (type png)
+<use ./images/NeoMeetup.png>
+Package pdftex.def Info: ./images/NeoMeetup.png  used on input line 89.
+(pdftex.def)             Requested size: 218.03278pt x 63.33018pt.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 87.
+(Font)              scaled to size 10.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/b/n' will be
-(Font)              scaled to size 20.0pt on input line 87.
+(Font)              scaled to size 20.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/n' will be
-(Font)              scaled to size 12.0pt on input line 87.
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 87
+(Font)              scaled to size 12.0pt on input line 89.
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 89
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd"
@@ -1143,39 +1148,39 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 87
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 89
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 87
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 89
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd"
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 87
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 89
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd"
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 87.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-ptm.cfg"
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/microtype\mt-msa.cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -1184,87 +1189,87 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/n' will be
-(Font)              scaled to size 8.0pt on input line 87.
+(Font)              scaled to size 8.0pt on input line 89.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/n' will be
-(Font)              scaled to size 6.0pt on input line 87.
+(Font)              scaled to size 6.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/l/it' will be
-(Font)              scaled to size 8.0pt on input line 87.
+(Font)              scaled to size 8.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 87.
+(Font)              scaled to size 8.0pt on input line 89.
 LaTeX Font Info:    Font shape `T1/Montserrat-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 88.
+(Font)              scaled to size 12.0pt on input line 90.
  (article_3.toc)
 \tf@toc=\write4
 \openout4 = `article_3.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--109
+Underfull \hbox (badness 10000) in paragraph at lines 100--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--109
+Underfull \hbox (badness 10000) in paragraph at lines 100--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--109
+Underfull \hbox (badness 10000) in paragraph at lines 100--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--109
+Underfull \hbox (badness 10000) in paragraph at lines 100--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--125
+Underfull \hbox (badness 10000) in paragraph at lines 122--127
 
  []
 
 [1{C:/Users/Massi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-]
+ <./images/NeoMeetup.png>]
 No file article_3.bbl.
 
 AED: lastpage setting LastPage
 [2
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
  (article_3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
 Package rerunfilecheck Info: File `article_3.out' has not changed.
 (rerunfilecheck)             Checksum: C7B5BA4F2A72B4F2B95101E05AE673DB;420.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 155.
  ) 
 Here is how much of TeX's memory you used:
- 22382 strings out of 492897
- 389563 string characters out of 3133499
- 579648 words of memory out of 3000000
- 25917 multiletter control sequences out of 15000+200000
+ 22389 strings out of 492897
+ 389696 string characters out of 3133499
+ 579687 words of memory out of 3000000
+ 25921 multiletter control sequences out of 15000+200000
  645054 words of font info for 177 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,11n,63p,948b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1274,9 +1279,9 @@ les/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-Bold.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-Light.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-LightItalic.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-Output written on article_3.pdf (2 pages, 145534 bytes).
+Output written on article_3.pdf (2 pages, 255415 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
+ 93 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
- 35905 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 35910 words of extra memory for PDF output out of 42996 (max. 10000000)
 
