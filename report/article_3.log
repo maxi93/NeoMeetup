@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.2)  2 MAY 2019 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.5.2)  2 MAY 2019 17:06
 entering extended mode
 **./article_3.tex
 (article_3.tex
@@ -1227,64 +1227,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--109
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--125
+
+ []
+
 [1{C:/Users/Massi/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
 No file article_3.bbl.
 
-Package lastpage Warning: Rerun to get the references right on input line 152.
-
-
 AED: lastpage setting LastPage
-
-LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 152.
-
 [2
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
  (article_3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
+Package rerunfilecheck Info: File `article_3.out' has not changed.
+(rerunfilecheck)             Checksum: C7B5BA4F2A72B4F2B95101E05AE673DB;420.
 
-
-Package rerunfilecheck Warning: File `article_3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `article_3.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  C7B5BA4F2A72B4F2B95101E05AE673DB;420.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
  ) 
 Here is how much of TeX's memory you used:
- 22367 strings out of 492897
- 389290 string characters out of 3133499
- 578623 words of memory out of 3000000
- 25908 multiletter control sequences out of 15000+200000
- 644470 words of font info for 173 fonts, out of 3000000 for 9000
+ 22382 strings out of 492897
+ 389563 string characters out of 3133499
+ 579648 words of memory out of 3000000
+ 25917 multiletter control sequences out of 15000+200000
+ 645054 words of font info for 177 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,63p,948b,467s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,11n,63p,948b,387s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/montserrat/zmo_xu4w3w.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/montserrat/zmo_wieltn.enc}<C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-Bold.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-Light.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/montserrat/Montserrat-LightItalic.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-Output written on article_3.pdf (2 pages, 141257 bytes).
+Output written on article_3.pdf (2 pages, 145534 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  15 named destinations out of 1000 (max. 500000)
- 35841 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 35905 words of extra memory for PDF output out of 42996 (max. 10000000)
 
