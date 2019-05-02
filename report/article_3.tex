@@ -26,6 +26,11 @@
 
 \usepackage{lipsum} % Required to insert dummy text. To be removed otherwise
 
+\usepackage[defaultfam,light,tabular,lining]{montserrat} %% Option 'defaultfam'
+%% only if the base font of the document is to be sans serig
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
 %----------------------------------------------------------------------------------------
 %	COLUMNS
 %----------------------------------------------------------------------------------------
@@ -37,12 +42,12 @@
 %	COLORS
 %----------------------------------------------------------------------------------------
 
-%\definecolor{color1}{RGB}{0,0,90} % Color of the article title and sections
-\definecolor{color1}{RGB}{178,34,34} % Color of the article title and sections
+\definecolor{color1}{RGB}{102, 102, 102} % Color of the article title and sections
+%\definecolor{color1}{RGB}{178,34,34} % Color of the article title and sections
 %\definecolor{color1}{RGB}{246,64,96} % Color of the article title and sections
 
-\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
-
+%\definecolor{color2}{RGB}{0,20,20} % Color of the boxes behind the abstract and headings
+\definecolor{color2}{RGB}{246,64,96}
 %----------------------------------------------------------------------------------------
 %	HYPERLINKS
 %----------------------------------------------------------------------------------------
@@ -96,7 +101,9 @@ yolo
 %------------------------------------------------
 
 \section{Goals}
-
+Attraverso l'analisi di questa rete sociale e andando a studiare le relazioni che interconnettono le persone attraverso eventi sociali organizzati in tutto il globo, è possibile avere una mappatura degli interessi comuni che portano ad agglomerare un significativo numero di soggetti.
+Ricreando quindi questa rete, l'obiettivo del progetto è quello di identificare correlazioni o tracce significative che possono determinare delle buone regole nella creazione, in primis di un gruppo sociale, %\non ho idea QUI se è vero
+di eventi di notevole impatto sociale, che possano raggruppare un buon numero di persone.(CONTINUE)%first version incomplete  
 
 %------------------------------------------------
 \section{Implementation: Architecture}
