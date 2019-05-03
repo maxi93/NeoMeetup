@@ -126,32 +126,84 @@ Ricreando questa rete, l'obiettivo del progetto è quello di identificare correl
 %------------------------------------------------
 \section{Implementation: Architecture}
 %FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
-\subsection{Source}: WebSocket (RSVP) Rest API
+\subsection{Source}%WebSocket (RSVP) Rest API
 Meetup mette a disposizione parte dei dati in suo possesso relativi a membri iscritti alla piattaforma, gruppi creati ed eventi organizzati nella stessa. In particolare, i dati sono forniti in due modalita: 
 
-\paragraph{streaming data}: la piattaforma condivide dati in streaming, composti essenzialmente da \textbf{RSVP}.
+\paragraph{streaming data:} 
+la piattaforma condivide dati in streaming, composti essenzialmente da \textbf{RSVP}.
 Le RSVP sono risposte di feedback da parte degli utenti comunicanti agli organizzatori di un evento la loro partecipazione (o la loro non partecipazione, in quanto le risposte possono essere anche negative).
-Un esempio di dato del genere è riportato in figura %FIXME: add fig.
+Un esempio di dato del genere è riportato sotto allo scopo di mostrarne la struttura.%FIXME: add fig.
+%da fare un format migliore
+\begin{itemize}[noitemsep]
+\item \textbf{event}:
+	\begin{itemize}[noitemsep]
+	\item event\_id:	Unique alphanumeric identifier
+	\item event\_name: Name of the event
+	\item event\_url: URL to the full event page
+	\item time: Event time if set in milliseconds since the epoch
+	\end{itemize}
+\item \textbf{group}:
+	\begin{itemize}[noitemsep]
+    \item group\_city: Group's home city
+    \item group\_country: two-letter code of group's home country
+    \item group\_id: Numeric identifier of the group
+    \item group\_lat: Latitude of group's approximate location
+    \item group\_lon: Longitude of group's approximate location
+    \item group\_name: Name of the group
+    \item group\_state: two-letter code of group's home state, if in US or CA
+    \item group\_topics: Topics associated with this group
+			\begin{itemize}[noitemsep]
+			\item topic\_name: Longer name
+        	\item urlkey: Unique keyword
+			\end{itemize}
+    \item group\_urlname: Unique portion of group's URL, no slashes
+	\end{itemize}
+\item guests: Number of guests the member is bringing
+\item \textbf{member}: Member who RSVP'd
+	\begin{itemize}[noitemsep]
+    \item member\_id: Unique numeric id
+    \item member\_name: Full name given
+    \item other\_services: e.g. {"twitter": {"identifier": "MeetupAPI"}}
+    \item photo: Thumbnail URL for member photo if one exists
+	\end{itemize}
+\item \textbf{mtime}: Last modified time of this RSVP, in milliseconds since the epoch
+\item response: "yes" or "no"
+\item rsvp\_id: Unique numeric identifier
+\item \textbf{venue}: Venue, if public
+	\begin{itemize}[noitemsep]
+    \item lat: Latitude of the venue
+    \item lon: Longitude of the venue
+    \item venue\_id: Unique numeric identifier
+    \item venue\_name
+	\end{itemize}    
+\end{itemize}
 Tali dati vengono estratti da websocket, sfruttando Nifi (vedasi prossimo paragrafo).
-\paragraph{REST api}: Meetup permette anche un accesso piuttosto flessibile al database, esponendo tramite REST API informazioni riguardo a membri, gruppi ed eventi. Abbiamo sfruttato questa possibilità per arricchire i dati acquisiti in streaming: in particolare, abbiamo proceduto all'enrichment delle informazioni sui membri, integrando per ciascun membro una localizzazione spaziale, ovvero le coordinate geografiche (lat/lon)
-
-
-\subsection{Nifi}: Producer and blabla
-Per aquisire i dati in streaming dalla piattaforma, abbiamo implementato un workflow di Nifi %(fig. ~\ref{addcit.))
-contenente: 
-\begin{itemize}
-\item un nodo WebSocket, implementando JettyClient (more to add), 
-\item un nodo per il parsing (more to add)
-\item un nodo ToFile (more to add): decidiamo di salvare i dati acquisiti in file system per due motivi: innanzitutto per avere una copia dei dati di backup, qual'ora si fossero verificati problemi (ad esempio, all'inizio non eravamo sicuri di aver settato correttamente il Retention time di Kafka) %FixMe, forse va spostato dopo, non so.
-in secondo luogo, terminato il periodo di acquisizione, per facilitare la copia dei dati sulle altre virtual machine, in modo da implementare contemporaneamente la stessa pipeline su due macchine, per poter confrontare (quantitativamente, in termini, ad esempio, di quantità di dati importati tempo di esecuzione dei vari scripts etc.) i risultati ottenuti.
-\item un nodo ToKafka (more to add), per permettere l'ingestion dei dati all'interno di Kafka (vedasi sezione successiva).
+\paragraph{REST api:} Meetup permette anche un accesso piuttosto flessibile al database, esponendo tramite REST API informazioni riguardo a membri, gruppi ed eventi. Abbiamo sfruttato questa possibilità per arricchire i dati acquisiti in streaming: in particolare, abbiamo proceduto all'enrichment delle informazioni sui membri, integrando per ciascun membro:
+\begin{itemize}[noitemsep]
+\item la localizzazione spaziale, ovvero le coordinate geografiche (lat/lon)
+\item i topic in cui l'utente ha dichiarato di essere interessato al momento dell'iscrizione alla piattaforma.
+\end{itemize}
+\subsection{Nifi}% Producer and blabla
+\begin{figure}
+\includegraphics[scale=0.3]{images/nifi_workflow.png}
+\caption{\label{nifi_workflow} Il workflow Nifi}
+\end{figure}
+Per aquisire i dati in streaming dalla piattaforma abbiamo implementato un workflow di Nifi (vedasi fig.~\ref{nifi_workflow}) contenente: 
+\begin{itemize}[noitemsep]
+\item un nodo per la connessione alla \textbf{WebSocket} (\url{ws://stream.meetup.com/2/rsvps}, tramite un Client Jetty. 
+\item un nodo per il parsing iniziale.
+\item un nodo \textbf{PutFile}: decidiamo di salvare i dati acquisiti su file system per due motivi principali. Innanzitutto ciò è utile per avere una copia dei dati di backup, qual ora si verificassero problemi (ad esempio, con il corretto setting di \textit{retention time} di Kafka); in secondo luogo, terminato il periodo di acquisizione, per facilitare la copia dei dati su altre virtual machine, in modo da implementare contemporaneamente la stessa pipeline su più macchine, per poter confrontare (quantitativamente, in termini, ad esempio, di quantità di dati importati tempo di esecuzione dei vari scripts etc.) i risultati ottenuti.
+\item un nodo PublishKafka, comodo per effettuare l'ingestion dei dati in Kafka (vedasi sezione successiva). %FIXME: forse parentesi non necessaria
 \end{itemize} 
-I principali vantaggi che Nifi ci ha fornito sono la gestione facilitata della queue, la possibilità di parsing e la facile interfaccia con il Kafka Consumer. Inoltre Nifi garantisce %FIXME: aggiungi fault tolerance etc dopo aver fatto check.
-\subsection{Kafka}: %Lambda Arch. and blabla
-Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere flusso di streaming di messaggi (RSVP), abbiamo deciso di fare un'ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API. Abbiamo inoltre modificato i parametri di RetentionTime, in modo tale che Kafka fungesse da primo storage temporaneo, in grado di salvare all'interno di un topic tutti i messaggi acquisiti in real time streaming, per poi poterli processare successivamente senza correre il rischio di perdere qualche informazione.
-Come accennato, con l'API di Kafka per Python abbiamo potuto processare i dati, creando diversi csv (link alla repo) (FIX: non saprei quanto entrare nei dettagli dei vari csv), in modo da facilitare e rendere più efficente l'import nel database finale.
-(FIX: eventualmente accenna script per automatizzare)
-\subsection{Neo4j}: Storing and querying
+I principali vantaggi che Nifi ci ha fornito sono la gestione facilitata della queue, la possibilità di parsing e la facile interfaccia con il Kafka Consumer.
+%Inoltre Nifi garantisce %FIXME: aggiungi fault tolerance etc dopo aver fatto check.
+\subsection{Kafka} %Lambda Arch. and blabla
+Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere flusso di streaming di messaggi (RSVP), abbiamo deciso di fare un'ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API. 
+Abbiamo inoltre modificato i parametri di RetentionTime, in modo tale che Kafka fungesse da primo storage temporaneo, in grado di salvare all'interno di un topic tutti i messaggi acquisiti in real time streaming, per poi poterli processare successivamente senza correre il rischio di perdere qualche informazione.
+Come accennato, con l'API di Kafka per Python abbiamo potuto processare i dati, creando diversi csv (link alla repo),%(FIX: non saprei quanto entrare nei dettagli dei vari csv)
+ in modo da facilitare e rendere più efficente l'import nel database finale.
+%(FIX: eventualmente accenna script per automatizzare)
+\subsection{Neo4j}% Storing and querying
 Abbiamo scelto di salvare i nostri dati in un database a grafo per via della loro struttura naturale, che ben si presta ad essere schematizzata con nodi principali, proprietà e relazioni che interconnettono tali nodi. Abbiamo provveduto quindi all'import dei dati in Neo4j, sfruttando il linguaggio Cypher e l'ottimizzazione dell'import via csv (accenno alle difficoltà di import precedenti). Per facilitare un'eventuale serializzazione del processo di import, abbiamo creato uno script (Bash) che, una volta creati i csv, consente di automatizzare le varie chiamate alla cypher-shell, dato che il processo di creazione del database risulta piuttosto laborioso ma facilmente standardizzabile (FIX: add link to import.sh).
 Aggiungere info quantitative: nodi totali creati, 
 \section{Results}
