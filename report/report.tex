@@ -121,11 +121,18 @@ Ad oggi, Meetup è disponibile in 186 Paesi, e conta più di 40 milioni di membr
 {\footnotesize
 Con l'analisi della rete sociale di Meetup e andando a studiare le relazioni che interconnettono le persone attraverso eventi sociali organizzati dai diversi gruppi presenti in tutto il globo, è possibile avere una mappatura più o meno dettagliata degli interessi comuni che portano ad agglomerare un significativo numero di soggetti instaurando relazioni tra di essi. \\
 \\
-Ricreando questa rete, l'obiettivo del progetto è quello di identificare correlazioni o tracce significative che possono determinare delle buone regole nella creazione di eventi di notevole impatto sociale; una piccola guida '\textbf{How to}' su come dev'essere organizzato un evento di successo. (CONTINUE)%first version incomplete  
+Cercando di ricreare questa rete ci siamo posti alcuni obiettivi, considerando anche i limiti dovuti all'acquisizione dati, ovvero quella avvenuta in forma streaming:
+\begin{itemize}
+\item Effettuare misure quantitative semplici per verificare, banalmente, quali siano i paesi in cui la piattaforma è più utilizzata ed affermata;
+\item Sfruttando le informazioni temporali, verificare quale sia il momento migliore della settimana e della giornata in cui organizzare un meetup per poter attrarre più persone possibili, considerando che la piattaforma è per lo più utilizzata per incontri di carattere professionale;
+\item Sfruttando le informazioni spaziali, cercare di individuare quanto ampio sia il raggio di un evento in termini di attrazione degli utenti;
+\item Utilizzando le informazioni relative ai topic trattati dai gruppi che organizzano gli eventi e ai topic che i membri dichiarano in sede di iscrizione alla piattaforma, valutare l'efficacia del sistema di raccomandazione della piattaforma, sempre considerando i limiti naturali imposti dallo streaming.
+\end{itemize}
+L'obiettivo del progetto, in sintesi, è quello di identificare correlazioni o tracce significative che possano determinare delle buone regole nella creazione di eventi di notevole impatto sociale; una piccola guida "\textbf{How to}" su come dev'essere organizzato un evento di successo.
 }
 %------------------------------------------------
 \section{Implementation: Architecture}
-%FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
+{\footnotesize %FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
 \subsection{Source}%WebSocket (RSVP) Rest API
 Meetup mette a disposizione parte dei dati in suo possesso relativi a membri iscritti alla piattaforma, gruppi creati ed eventi organizzati nella stessa. In particolare, i dati sono forniti in due modalita: 
 
@@ -205,7 +212,8 @@ Come accennato, con l'API di Kafka per Python abbiamo potuto processare i dati, 
 %(FIX: eventualmente accenna script per automatizzare)
 \subsection{Neo4j}% Storing and querying
 Abbiamo scelto di salvare i nostri dati in un database a grafo per via della loro struttura naturale, che ben si presta ad essere schematizzata con nodi principali, proprietà e relazioni che interconnettono tali nodi. Abbiamo provveduto quindi all'import dei dati in Neo4j, sfruttando il linguaggio Cypher e l'ottimizzazione dell'import via csv (accenno alle difficoltà di import precedenti). Per facilitare un'eventuale serializzazione del processo di import, abbiamo creato uno script (Bash) che, una volta creati i csv, consente di automatizzare le varie chiamate alla cypher-shell, dato che il processo di creazione del database risulta piuttosto laborioso ma facilmente standardizzabile (FIX: add link to import.sh).
-Aggiungere info quantitative: nodi totali creati, 
+Aggiungere info quantitative: nodi totali creati,
+}
 \section{Results}
 
 Fabri  $<$3 Meetup xD.
