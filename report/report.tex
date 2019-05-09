@@ -134,7 +134,7 @@ L'obiettivo del progetto, in sintesi, è quello di identificare correlazioni o t
 \section{Implementation: Architecture}
 {\footnotesize %FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
 \subsection{Source}%WebSocket (RSVP) Rest API
-Meetup mette a disposizione parte dei dati in suo possesso relativi a membri iscritti alla piattaforma, gruppi creati ed eventi organizzati nella stessa. In particolare, i dati sono forniti in due modalita: 
+Meetup, come già detto, mette a disposizione parte dei dati in suo possesso relativi a membri iscritti alla piattaforma, gruppi creati ed eventi organizzati nella stessa. In particolare, i dati sono forniti in due modalità: 
 
 \paragraph{streaming data:} 
 la piattaforma condivide dati in streaming, composti essenzialmente da \textbf{RSVP}.
@@ -222,10 +222,11 @@ Fabri  $<$3 Meetup xD.
 \section*{Interesting Challenges}
 Circumstances where fabri has sclerated:
 \paragraph{Symbolic Links}: Per ovviare a un bug/limite dei nodi getFile/FetchFile che si verifica quando si tenta di fare un'ingestion di una elevata quantità di file in una sola volta, abbiamo escogitato una soluzione creando dei link symbolici, dividendo la creazione in sottocartelle, facendo leggere al nodo GetFile questi link e impostando il nodo in modo che venisse eliminato il link dopo la singola lettura/ingestion. (Va detto ovviamente meglio)
-\paragraph{Ottimizzazione script per gestione memoria}: fixme.
+\paragraph{Ottimizzazione script per gestione memoria}: dict vs list.
 \paragraph{Import CSV vs PyNeo}: prestazioni dell'import via csv con Cypher nettamente superiori a quelle ottenute tramite PyNeo (Python API di Neo4j). (aggiungi esempio e amplia)
 \paragraph{Scalability}: accenno allo streaming di dicembre, e cenni di scalabilità dato il raddoppio della mole di dati gestiti.
-
+\paragraph{integrazione dei dati tramite rest API}: parallelizzazione e frequent throttlig.
+\paragraph{conversione dei metadati temporali}: da UTC a timezone locali.
 \section*{Acknowledgments} % The \section*{} command stops section numbering
 
 \addcontentsline{toc}{section}{Acknowledgments} % Adds this section to the table of contents
