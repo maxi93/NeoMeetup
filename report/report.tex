@@ -134,13 +134,20 @@ L'obiettivo del progetto, in sintesi, è quello di identificare correlazioni o t
 %------------------------------------------------
 \section{Implementation: Architecture}
 {\small %FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
+\subsection{Covered point}
+L'intera strutturazione del progetto si pone come obiettivi didattici, oltre a quelli pratici già esposti, di coprire le tre \textbf{V} caratteristiche dei \textit{Big Data}:
+\begin{enumerate}
+\item \textbf{V}elocity: attraverso l'applicazione di raccolta dei dati provenienti da una fonte streaming, con tutte le problematiche a questa connessa, come connessione e immagazzinamento dei dati real time.
+\item \textbf{V}olume: la raccolta dei dati ha prodotto un quantitativo di dati di notevole importanza, comportando la costruzione di un DB di dimensione superiore ai 2 GB. Ciò ha comportato la necessità di applicare tecniche e tool adeguati a compiere task su grandi moli di dati in tempi accettabili.
+\item \textbf{V}ariety: la raccolta dei dati non si è infatti limitata all'immagazzinamento tramite streaming, ma è stata applicata anche attraverso interrogazione a REST api necessitando, quindi, anche un lavoro a posteriori di riconduzione delle diverse fonti dei dati a formato comune con successivo instance matching, reso possibile dalla presenza di identificatori univoci presenti per ogni entità. 
+\end{enumerate}
 \subsection{Source}%WebSocket (RSVP) Rest API
 Meetup, come già detto, mette a disposizione parte dei dati in suo possesso relativi a membri iscritti alla piattaforma, gruppi creati ed eventi organizzati nella stessa. In particolare, i dati sono forniti in due modalità: 
 
 \paragraph{streaming data:} 
 la piattaforma condivide dati in streaming, composti essenzialmente da \textbf{RSVP}.
-Le RSVP sono risposte di feedback da parte degli utenti comunicanti agli organizzatori di un evento la loro partecipazione (o la loro non partecipazione, in quanto le risposte possono essere anche negative).
-Un esempio di dato del genere è riportato sotto allo scopo di mostrarne la struttura.%FIXME: add fig.
+Le RSVP sono risposte di feedback da parte degli utenti comunicanti agli organizzatori di un evento la loro partecipazione (o la loro non partecipazione, in quanto le risposte possono essere anche negative), all'evento stesso.
+Un esempio di dato di questo genere è riportato sotto allo scopo di mostrarne la struttura.%FIXME: add fig.
 %da fare un format migliore
 \begin{itemize}[noitemsep]
 \item \textbf{event}:
@@ -185,11 +192,11 @@ Un esempio di dato del genere è riportato sotto allo scopo di mostrarne la stru
     \item venue\_name
 	\end{itemize}    
 \end{itemize}
-Tali dati vengono estratti da websocket, sfruttando Nifi (vedasi prossimo paragrafo).
-\paragraph{REST api:} Meetup permette anche un accesso piuttosto flessibile al database, esponendo tramite REST API informazioni riguardo a membri, gruppi ed eventi. Abbiamo sfruttato questa possibilità per arricchire i dati acquisiti in streaming: in particolare, abbiamo proceduto all'enrichment delle informazioni sui membri, integrando per ciascun membro:
+Abbiamo proceduto ad estrarre tali dati da websocket, sfruttando Nifi (vedasi prossimo paragrafo).
+\paragraph{REST api:} Meetup permette anche un accesso piuttosto flessibile al database, esponendo tramite REST API informazioni riguardo a membri, gruppi ed eventi in formato JSON. Abbiamo sfruttato questa possibilità per arricchire i dati acquisiti in streaming: in particolare, abbiamo proceduto all'enrichment delle informazioni sui membri, integrando per ciascun membro:
 \begin{itemize}[noitemsep]
-\item la localizzazione spaziale, ovvero le coordinate geografiche (lat/lon)
-\item i topic in cui l'utente ha dichiarato di essere interessato al momento dell'iscrizione alla piattaforma.
+\item la localizzazione spaziale, ovvero le coordinate geografiche (lat/lon) dichiarate in fase di registrazione così che il sistema di raccomandazione dell'applicazione possa suggerire gruppi su base geografica.
+\item i topic in cui l'utente ha dichiarato di avere interesse al momento dell'iscrizione alla piattaforma, anche in questo caso per permettere al sistema di raccomandazione di suggerire gruppi per cui l'utente potrebbe avere interesse.
 \end{itemize}
 \subsection{Nifi}% Producer and blabla
 \begin{figure}
@@ -197,18 +204,18 @@ Tali dati vengono estratti da websocket, sfruttando Nifi (vedasi prossimo paragr
 \caption{\label{nifi_workflow} Il workflow Nifi}
 \end{figure}
 Per aquisire i dati in streaming dalla piattaforma abbiamo implementato un workflow di Nifi (vedasi \textbf{fig.~\ref{nifi_workflow}}) contenente: 
-\begin{itemize}[noitemsep]
+\begin{itemize} %[noitemsep]
 \item un nodo per la connessione alla \textbf{WebSocket} (\url{ws://stream.meetup.com/2/rsvps}, tramite un Client Jetty. 
 \item un nodo per il parsing iniziale.
-\item un nodo \textbf{PutFile}: decidiamo di salvare i dati acquisiti su file system per due motivi principali. Innanzitutto ciò è utile per avere una copia dei dati di backup, qual ora si verificassero problemi (ad esempio, con il corretto setting di \textit{retention time} di Kafka); in secondo luogo, terminato il periodo di acquisizione, per facilitare la copia dei dati su altre virtual machine, in modo da implementare contemporaneamente la stessa pipeline su più macchine, per poter confrontare (quantitativamente, in termini, ad esempio, di quantità di dati importati tempo di esecuzione dei vari scripts etc.) i risultati ottenuti.
-\item un nodo PublishKafka, comodo per effettuare l'ingestion dei dati in Kafka (vedasi sezione successiva). %FIXME: forse parentesi non necessaria
+\item un nodo \textbf{PutFile}: abbiamo deciso di salvare i dati acquisiti su file system per due motivi principali: innanzitutto ciò è utile per avere una copia di backup dei dati, qual ora si verificassero problemi (ad esempio, con il corretto setting di \textit{retention time} di Kafka); in secondo luogo, terminato il periodo di acquisizione, per facilitare la copia dei dati su altre virtual machines, in modo da implementare contemporaneamente la stessa pipeline su più macchine, per poter confrontare (quantitativamente, in termini, ad esempio, di quantità di dati importati, tempi di esecuzione dei vari scripts etc.) i risultati ottenuti.
+\item un nodo PublishKafka, comodo per effettuare l'ingestion dei dati in Kafka, configurandosi questo come un vero e proprio producer (vedasi sezione successiva). %FIXME: forse parentesi non necessaria
 \end{itemize} 
-I principali vantaggi che Nifi ci ha fornito sono la gestione facilitata della queue, la possibilità di parsing e la facile interfaccia con il Kafka Consumer.
+I principali vantaggi che Nifi ci ha fornito sono la gestione facilitata della queue, la possibilità di parsing e la facile interfaccia con il Kafka Producer.
 %Inoltre Nifi garantisce %FIXME: aggiungi fault tolerance etc dopo aver fatto check.
 \subsection{Kafka} %Lambda Arch. and blabla
-Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere flusso di streaming di messaggi (RSVP), abbiamo deciso di fare un'ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API. 
+Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere in un flusso di messaggi in streaming (RSVP), abbiamo deciso di fare un'ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API.
 Abbiamo inoltre modificato i parametri di RetentionTime, in modo tale che Kafka fungesse da primo storage temporaneo, in grado di salvare all'interno di un topic tutti i messaggi acquisiti in real time streaming, per poi poterli processare successivamente senza correre il rischio di perdere qualche informazione.
-Come accennato, con l'API di Kafka per Python abbiamo potuto processare i dati, creando diversi csv (link alla repo),%(FIX: non saprei quanto entrare nei dettagli dei vari csv)
+Come accennato, con l'API di Kafka per Python abbiamo potuto configurare un consumer processare i dati, creando diversi csv (\href{https://github.com/DBertazioli/NeoMeetup/tree/master/csv/struttura}{link alla repository}), %(FIX: non saprei quanto entrare nei dettagli dei vari csv)
  in modo da facilitare e rendere più efficente l'import nel database finale.
 %(FIX: eventualmente accenna script per automatizzare)
 \subsection{Neo4j}% Storing and querying
@@ -217,12 +224,11 @@ Come accennato, con l'API di Kafka per Python abbiamo potuto processare i dati, 
 \includegraphics[scale=0.57]{graph.png}
 \caption{\label{graph_neo4j} Schema graph DB}
 \end{figure}
-Abbiamo scelto di salvare i nostri dati in un database a grafo per via della loro struttura naturale, che ben si presta ad essere schematizzata con nodi principali, proprietà e relazioni che interconnettono tali nodi. Abbiamo provveduto quindi all'import dei dati in Neo4j, sfruttando il linguaggio Cypher e l'ottimizzazione dell'import via csv (accenno alle difficoltà di import precedenti). Per facilitare un'eventuale serializzazione del processo di import, abbiamo creato uno script (Bash) che, una volta creati i csv, consente di automatizzare le varie chiamate alla cypher-shell, dato che il processo di creazione del database risulta piuttosto laborioso ma facilmente standardizzabile (FIX: add link to import.sh).
-Aggiungere info quantitative: nodi totali creati,
+Abbiamo scelto di salvare i nostri dati in un database a grafo per via della loro struttura naturale, che ben si presta ad essere schematizzata con nodi principali, proprietà e relazioni che interconnettono tali nodi. Abbiamo provveduto quindi all'import dei dati in Neo4j, sfruttando il linguaggio Cypher e l'ottimizzazione dell'import via csv, dopo aver in un primo momento tentato un approccio tramite l'api Python Py2Neo. Per facilitare un'eventuale serializzazione del processo di import, abbiamo creato uno script (Bash) che, una volta creati i csv, consente di automatizzare le varie chiamate alla cypher-shell, dato che il processo di creazione del database risulta piuttosto laborioso ma facilmente standardizzabile (\href{https://github.com/DBertazioli/NeoMeetup/blob/master/Scripts/import_cypher.sh}{import.sh}). Il database così realizzato presenta circa 1 milione e mezzo di singoli nodi e circa 28 milioni di relazioni tra questi, con un tempo di import su Neo4j stimato in circa due ore.
 }
 \section{Results}
 
-Fabri  $<$3 Meetup xD.
+Fabri  $<$3 Meetup xD. %to add conclusions
 %------------------------------------------------
 \phantomsection
 \section*{Interesting Challenges}
