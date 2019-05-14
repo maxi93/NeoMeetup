@@ -132,6 +132,7 @@ Cercando di ricreare questa rete ci siamo posti alcuni obiettivi, considerando a
 L'obiettivo del progetto, in sintesi, è quello di identificare correlazioni o tracce significative che possano determinare delle buone regole nella creazione di eventi di notevole impatto sociale; una piccola guida "\textbf{How to}" su come dev'essere organizzato un evento di successo.
 }
 %------------------------------------------------
+\newpage
 \section{Implementation: Architecture}
 {\small %FIXME: IMPORTANT: da aggiungere caratteristiche quali tolerance failure et similia un po' ovunque
 \subsection{Covered point}
@@ -203,7 +204,7 @@ Abbiamo proceduto ad estrarre tali dati da websocket, sfruttando Nifi (vedasi pr
 \includegraphics[scale=0.3]{images/nifi_workflow.png}
 \caption{\label{nifi_workflow} Il workflow Nifi}
 \end{figure}
-Per aquisire i dati in streaming dalla piattaforma abbiamo implementato un workflow di Nifi (vedasi \textbf{fig.~\ref{nifi_workflow}}) contenente: 
+Per acquisire i dati in streaming dalla piattaforma abbiamo implementato un workflow di Nifi (vedasi \textbf{fig.~\ref{nifi_workflow}}) contenente: 
 \begin{itemize} %[noitemsep]
 \item un nodo per la connessione alla \textbf{WebSocket} (\url{ws://stream.meetup.com/2/rsvps}, tramite un Client Jetty. 
 \item un nodo per il parsing iniziale.
@@ -213,10 +214,10 @@ Per aquisire i dati in streaming dalla piattaforma abbiamo implementato un workf
 I principali vantaggi che Nifi ci ha fornito sono la gestione facilitata della queue, la possibilità di parsing e la facile interfaccia con il Kafka Producer.
 %Inoltre Nifi garantisce %FIXME: aggiungi fault tolerance etc dopo aver fatto check.
 \subsection{Kafka} %Lambda Arch. and blabla
-Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere in un flusso di messaggi in streaming (RSVP), abbiamo deciso di fare un'ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API.
+Considerata la natura dei dati a nostra disposizione, che ricordiamo consistere in un flusso di messaggi in streaming (RSVP), abbiamo deciso di fare un ingestion in Kafka, potendo successivamente esplorare, iterare, e preprocessare le informazioni tramite Python API.
 Abbiamo inoltre modificato i parametri di RetentionTime, in modo tale che Kafka fungesse da primo storage temporaneo, in grado di salvare all'interno di un topic tutti i messaggi acquisiti in real time streaming, per poi poterli processare successivamente senza correre il rischio di perdere qualche informazione.
-Come accennato, con l'API di Kafka per Python abbiamo potuto configurare un consumer processare i dati, creando diversi csv (\href{https://github.com/DBertazioli/NeoMeetup/tree/master/csv/struttura}{link alla repository}), %(FIX: non saprei quanto entrare nei dettagli dei vari csv)
- in modo da facilitare e rendere più efficente l'import nel database finale.
+Come accennato, con l'API di Kafka per Python abbiamo potuto configurare un consumer per processare i dati, creando diversi \href{https://github.com/DBertazioli/NeoMeetup/tree/master/csv/struttura}{csv}, %(FIX: non saprei quanto entrare nei dettagli dei vari csv)
+ in modo da facilitare e rendere più efficiente l'import nel database finale.
 %(FIX: eventualmente accenna script per automatizzare)
 \subsection{Neo4j}% Storing and querying
 \begin{figure}
@@ -230,7 +231,8 @@ Abbiamo scelto di salvare i nostri dati in un database a grafo per via della lor
 \paragraph{Misure quantitative semplici}:
 %magari un grafico con relativo commento
 \paragraph{Utilizzo delle informazioni temporali}:
-%heatmap
+Attingendo alle informazioni temporali degli eventi, presenti nei messaggi, ed applicando un'opportuna manipolazione per convertire l'originale formato timestamp in un formato umanamente più leggibile, siamo stati in grado di rispondere alla nostra seconda domanda di ricerca. Dopo aver infatti adattato i metadati temporali alle time zone così da avere una panoramica coerente sugli eventi Meetup tenutisi nel mondo, indipendentemente dal fuso orario, abbiamo provveduto a realizzare una tabella di Pivot, tenente conto della numerosità di partecipanti agli eventi discriminati per giorno della settimana e per fascia oraria della giornata. Una volta realizzata la tabella è stato quindi possibile procedere alla costruzione della \textit{heatmap} in fig.~ %aggiungere heatmap 
+per rappresentare al meglio queste informazioni. Appare infatti chiaro dalla visualizzazione come i momenti migliori della settimana per organizzare un evento risultino essere il Martedì, il Mercoledì ed il Giovedì nella fascia oraria 18.00/20.00 ed il Sabato mattina tra le 10.00 e le 12.00. Ciò si conforma bene alla nostra intuizione che la maggior parte dell'utenza di Meetup sembrerebbe essere rappresentata da lavoratori, professionisti, che sono quindi più propensi a partecipare ad eventi in orario non lavorativo o durante giorni non lavorativi.
 \paragraph{Utilizzo delle informazioni spaziali}:
 %riferimento a mappa interattiva con link
 \paragraph{Valutazione efficacia sistema di raccomandazione}:
