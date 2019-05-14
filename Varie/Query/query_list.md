@@ -4,6 +4,7 @@
 
 
 
+
 #### Topic: 
 - Trend topic per uso di meetup (sia relativamente a membri interessati a tale topic, sia relativamente a eventi organizzati con tale topic)
 
@@ -32,7 +33,7 @@
 
 
 #### Tempo di risposta (mtime)
-- Analisi distribuzione temporale di risposte (rispetto a geo)
+- Analisi distribuzione temporale di risposte (rispetto a geo) [da effettuare sul csv]
 
 #### Events:
 	
