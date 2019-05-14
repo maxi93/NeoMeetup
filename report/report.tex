@@ -227,8 +227,14 @@ Come accennato, con l'API di Kafka per Python abbiamo potuto configurare un cons
 Abbiamo scelto di salvare i nostri dati in un database a grafo per via della loro struttura naturale, che ben si presta ad essere schematizzata con nodi principali, proprietà e relazioni che interconnettono tali nodi. Abbiamo provveduto quindi all'import dei dati in Neo4j, sfruttando il linguaggio Cypher e l'ottimizzazione dell'import via csv, dopo aver in un primo momento tentato un approccio tramite l'api Python Py2Neo. Per facilitare un'eventuale serializzazione del processo di import, abbiamo creato uno script (Bash) che, una volta creati i csv, consente di automatizzare le varie chiamate alla cypher-shell, dato che il processo di creazione del database risulta piuttosto laborioso ma facilmente standardizzabile (\href{https://github.com/DBertazioli/NeoMeetup/blob/master/Scripts/import_cypher.sh}{import.sh}). Il database così realizzato presenta circa 1 milione e mezzo di singoli nodi e circa 28 milioni di relazioni tra questi, con un tempo di import su Neo4j stimato in circa due ore.
 }
 \section{Results}
-
-Fabri  $<$3 Meetup xD. %to add conclusions
+\paragraph{Misure quantitative semplici}:
+%magari un grafico con relativo commento
+\paragraph{Utilizzo delle informazioni temporali}:
+%heatmap
+\paragraph{Utilizzo delle informazioni spaziali}:
+%riferimento a mappa interattiva con link
+\paragraph{Valutazione efficacia sistema di raccomandazione}:
+%distribuzione Jaccard similarity
 %------------------------------------------------
 \phantomsection
 \section*{Interesting Challenges}
