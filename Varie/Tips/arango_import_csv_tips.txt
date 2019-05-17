@@ -4,27 +4,31 @@ piccoli tips per import csv in arangodb
 
 - tirare su un database (una volta acceduti in localhost:porta_arango, andare in voce -> database, crea nuovo --> <nome_db> )
 
-- preprazione csv per import 
+- preparazione csv per import 
 	
-	esempio: member.csv/group.csv/relaztions-member-group
+	esempio: member.csv/group.csv/relations_members-groups.csv
 
 	cambiare nome colonna
 	member_id -> _key
 	group_id -> _key
 
-	nelle relative relazioni bisogna aggioungere <nome_collection>/id per entrmabe le colonne
-	row -> member/id,group/id
-	inoltre cambiarte nome colonne in _from e _to
+	arangodb crea degli attributi di sistema al momento della creazione del documento tra cui _key che è l'identificatore del documento,
+	se noi invece lo specifichiamo imponiamo la nostra chiave. Al momento della creazione crea anche _id, composto da "nome_collection"+"/"+_key,
+	attributo fondamentale per effettuare il match per instaurare le relazioni, per questo motivo occorre definire il _key. 
+
+	nelle relative relazioni bisogna aggiungere <nome_collection>/id per entrambe le colonne
+	row -> collection1_name/id,collection2_name/id
+	inoltre cambiare nome colonne in _from e _to, parole chiave di arangodb per creare gli edge direzionati
 
 - import da shell windows:
 
-1. dirigersi in pat/arango/../bin
+1. dirigersi in path_to_program/arango/../bin
 
-2. IMPORT MEMBER --> arangoimp.exe C:\path\member_arango.csv  --type=csv --server.database test2 (il nome che avete scelto per il db sopra) --collection member --create-collection true
+2. IMPORT MEMBER --> arangoimp.exe C:\path\member_arango.csv  --type=csv --server.database your_db_name --collection your_collection_name --create-collection true
 
-3. IMPORT GROUP --> arangoimp.exe C:\path\group_arango.csv  --type=csv --server.database test2 (il nome che avete scelto per il db sopra) --collection group --create-collection true
+3. IMPORT GROUP --> arangoimp.exe C:\path\group_arango.csv  --type=csv --server.database your_db_name --collection your_collection_name --create-collection true
 
-4. IMPORT REL --> arangoimp.exe C:\path\rel-mem-gro.csv  --type=csv --server.database test2 --collection member-of --create-collection true --create-collection-type edge
+4. IMPORT REL --> arangoimp.exe C:\path\rel-mem-gro.csv  --type=csv --server.database your_db_name --collection your_collection_name --create-collection true --create-collection-type edge
 
 in webapp arango nella sezione graph:
 
